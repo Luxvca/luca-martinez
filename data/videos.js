@@ -46,24 +46,24 @@ export const videosBySection = {
     {
       slug: "nbc-4-streetwear-story",
       title: "NBC 4 | Streetwear Story",
-      thumbnail: "/images/NBC 4 Streetwear Images/NBC Image 10.png",
+      thumbnail: "/images/NBC%204%20Streetwear%20Images/NBC%20Image%2010.png",
       category: "Commercial",
       description: "Commercial work for NBC 4.",
       embedUrl: "https://youtu.be/BwfqpUpZ38g",
       year: "2025",
       credits: ["Directed by Luca Martinez"],
       stills: [
-        "/images/NBC 4 Streetwear Images/NBC Streetwear Thumbnail.png",
-        "/images/NBC 4 Streetwear Images/NBC Image 11.png",
-        "/images/NBC 4 Streetwear Images/NBC Image 9.png",
-        "/images/NBC 4 Streetwear Images/NBC Image 8.png",
-        "/images/NBC 4 Streetwear Images/NBC image 7.png",
-        "/images/NBC 4 Streetwear Images/NBC Image 6.png",
-        "/images/NBC 4 Streetwear Images/NBC Image 5.png",
-        "/images/NBC 4 Streetwear Images/NBC Image 4.png",
-        "/images/NBC 4 Streetwear Images/NBC Image 3.png",
-        "/images/NBC 4 Streetwear Images/NBC Image 2.png",
-        "/images/NBC 4 Streetwear Images/NBC image 1.png"
+        "/images/NBC%204%20Streetwear%20Images/NBC%20Streetwear%20Thumbnail.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20Image%2011.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20Image%209.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20Image%208.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20image%207.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20Image%206.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20Image%205.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20Image%204.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20Image%203.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20Image%202.png",
+        "/images/NBC%204%20Streetwear%20Images/NBC%20image%201.png"
       ]
     },
     {
