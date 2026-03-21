@@ -8,7 +8,7 @@ import * as THREE from "three";
 import { MeshSurfaceSampler } from "three/examples/jsm/math/MeshSurfaceSampler.js";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 
-const WHITE = new THREE.Color("#f5f5f5");
+const WHITE = new THREE.Color("#f2f0e7");
 
 const hotspotPoses = {
   selectedWork: { x: -0.64, y: -0.74 },
@@ -41,8 +41,8 @@ function setWhite(colors, index) {
 function getHotspotTarget(activeHotspot, pointer) {
   if (!activeHotspot) {
     return {
-      x: THREE.MathUtils.degToRad(pointer.current.y * -16),
-      y: THREE.MathUtils.degToRad(pointer.current.x * 20)
+      x: THREE.MathUtils.degToRad(pointer.current.y * -80),
+      y: THREE.MathUtils.degToRad(pointer.current.x * 100)
     };
   }
 
@@ -192,7 +192,7 @@ function LensRingOverlay({ scale = 1 }) {
   return (
     <points geometry={geometry} scale={scale}>
       <pointsMaterial
-        color="#f5f5f5"
+        color="#f2f0e7"
         size={0.03}
         sizeAttenuation
         transparent

@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#0a0a0a",
-        foreground: "#f5f5f5",
-        muted: "#b8b8b8",
-        line: "#2a2a2a"
+        background: "#081118",
+        foreground: "#f2f0e7",
+        muted: "#9ba8b2",
+        line: "#22343d"
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
@@ -21,7 +21,7 @@ module.exports = {
         editorial: "0.18em"
       },
       boxShadow: {
-        glow: "0 0 24px rgba(245, 245, 245, 0.08)"
+        glow: "0 0 24px rgba(242, 240, 231, 0.08)"
       }
     }
   },

@@ -12,17 +12,17 @@ export default function Contact({ compact = false }) {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className={compact ? "" : "section-grid py-20 md:py-28"}>
+      <div className={compact ? "" : "section-grid py-10 md:py-12"}>
         {!compact ? (
           <p className="text-[11px] uppercase tracking-editorial text-muted md:text-xs">
             Contact
           </p>
         ) : null}
-        <div className="mt-8 max-w-3xl space-y-6">
-          <p className="text-[26px] font-medium uppercase leading-none tracking-[0.14em] text-foreground md:text-[36px]">
-            US | THE TEAM©:
+        <div className="mt-6 max-w-3xl space-y-4">
+          <p className="text-base leading-8 text-muted md:text-lg">
+            US | THE TEAM:
           </p>
-          <div className="space-y-4 text-base leading-8 text-muted md:text-lg">
+          <div className="space-y-3 text-base leading-8 text-muted md:text-lg">
             <p>
               email:{" "}
               <a className="text-foreground transition-opacity hover:opacity-70" href="mailto:mail.lucamartinez@gmail.com">
@@ -57,6 +57,10 @@ export default function Contact({ compact = false }) {
                 https://www.instagram.com/lucaprjx/
               </a>
             </p>
+          </div>
+          <div className="pt-10 text-base leading-8 text-muted md:pt-14 md:text-lg">
+            <p>Los Angeles, CA</p>
+            <p>Bachelor of Arts, UC Berkeley Film Studies</p>
           </div>
         </div>
       </div>

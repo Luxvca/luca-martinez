@@ -4,13 +4,23 @@ import { useState } from "react";
 
 import CameraPointCloud from "@/components/CameraPointCloud";
 import Navbar from "@/components/Navbar";
+import PageHeader from "@/components/PageHeader";
+import VideoGrid from "@/components/VideoGrid";
+import { videosBySection } from "@/data/videos";
 
 export default function Hero() {
   const [activeHotspot, setActiveHotspot] = useState(null);
 
   return (
-    <section className="relative h-screen overflow-hidden bg-background">
-      <div className="section-grid relative z-10 h-full py-6 md:py-8">
+    <section className="relative overflow-hidden bg-background">
+      <div className="md:hidden">
+        <PageHeader currentPath="/selected-work" />
+        <div className="section-grid py-10">
+          <VideoGrid items={videosBySection.selectedWork} />
+        </div>
+      </div>
+
+      <div className="section-grid relative z-10 hidden h-screen py-6 md:block md:py-8">
         <div className="max-w-xs">
           <p className="text-[21px] font-medium leading-none tracking-[0.16em] text-foreground md:text-[24px]">
             LUCA MARTINEZ
@@ -24,12 +34,6 @@ export default function Hero() {
           <div className="pointer-events-auto h-[42vh] w-full max-w-4xl sm:h-[48vh] md:h-[54vh]">
             <CameraPointCloud activeHotspot={activeHotspot} />
           </div>
-        </div>
-
-        <div className="pointer-events-none absolute bottom-8 left-6 max-w-[12rem] md:bottom-10 md:left-10">
-          <p className="text-[10px] uppercase tracking-[0.24em] text-muted md:text-[11px]">
-            Cinematic motion studies and directed image-making
-          </p>
         </div>
 
         <Navbar activeHotspot={activeHotspot} onHotspotChange={setActiveHotspot} />

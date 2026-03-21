@@ -31,15 +31,15 @@ export default async function WorkDetailPage({ params }) {
     notFound();
   }
 
-  const stills = video.stills?.length ? video.stills : [video.thumbnail];
+  const stills = (video.stills || []).filter((still) => !still.includes("placeholder-frame.svg"));
 
   return (
     <main className="min-h-screen bg-background text-foreground">
       <PageHeader currentPath={`/${video.category.toLowerCase().replace(/\s+/g, "-")}`} />
       <section className="section-rule">
-        <div className="section-grid py-16 md:py-20">
-          <div className="grid gap-10 xl:grid-cols-[280px_minmax(0,1fr)] xl:gap-12">
-            <aside className="space-y-6 xl:sticky xl:top-8 xl:self-start">
+        <div className="section-grid py-10 md:py-12">
+          <div className="grid gap-8 xl:grid-cols-[220px_minmax(0,1fr)] xl:gap-8">
+            <aside className="space-y-6 xl:self-start">
               <div>
                 <p className="text-[11px] uppercase tracking-editorial text-muted md:text-xs">
                   {video.category}
@@ -57,36 +57,36 @@ export default async function WorkDetailPage({ params }) {
               </div>
             </aside>
 
-            <div className="space-y-4 md:space-y-6">
-              <div className="overflow-hidden bg-black">
-                <div className="aspect-video">
-                  <iframe
-                    src={getEmbedUrl(video.embedUrl)}
-                    title={video.title}
-                    className="h-full w-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-
-              <div className="grid gap-3 md:gap-4">
-                {stills.map((still, index) => (
-                  <div key={`${still}-${index}`} className="relative overflow-hidden bg-[#101010]">
-                    <div className="relative aspect-[16/10]">
-                      <Image
-                        src={still}
-                        alt={`${video.title} still ${index + 1}`}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 70vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                ))}
+            <div className="overflow-hidden bg-black">
+              <div className="aspect-video">
+                <iframe
+                  src={getEmbedUrl(video.embedUrl)}
+                  title={video.title}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
+
+          {stills.length ? (
+            <div className="mt-6 grid gap-4 px-4 md:mt-8 md:gap-5 md:px-8">
+              {stills.map((still, index) => (
+                <div key={`${still}-${index}`} className="relative overflow-hidden bg-[#101010]">
+                  <div className="relative aspect-[16/10]">
+                    <Image
+                      src={still}
+                      alt={`${video.title} still ${index + 1}`}
+                      fill
+                      sizes="100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
     </main>

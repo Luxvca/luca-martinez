@@ -12,7 +12,7 @@ export default function Treatments({ items, compact = false }) {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className={compact ? "" : "section-grid py-20 md:py-28"}>
+      <div className={compact ? "" : "section-grid py-10 md:py-12"}>
         {!compact ? (
           <div className="mb-12 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
@@ -35,7 +35,7 @@ export default function Treatments({ items, compact = false }) {
               href={item.pdfUrl}
               target="_blank"
               rel="noreferrer"
-              className="grid gap-4 bg-background px-6 py-6 transition-colors duration-300 hover:bg-[#111111] md:grid-cols-[1.2fr_2fr_auto] md:items-center"
+              className="grid gap-3 bg-background px-6 py-5 transition-colors duration-300 hover:bg-[#f0eee8] md:grid-cols-[1.25fr_2.1fr_auto] md:items-center"
             >
               <h3 className="text-lg font-medium uppercase tracking-[0.12em] text-foreground md:text-xl">
                 {item.title}
