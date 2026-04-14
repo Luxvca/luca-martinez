@@ -69,6 +69,28 @@ const lordsOfCatanTrailer = {
   ]
 };
 
+const nbcStreetwearStory = {
+  slug: "nbc-4-streetwear-story",
+  title: "NBC 4 | Streetwear Story",
+  thumbnail: "/images/NBC%204%20Streetwear%20images/NBC%20Image%2010.png",
+  category: "Selected Work",
+  description: "Streetwear story for NBC 4.",
+  embedUrl: "https://youtu.be/BwfqpUpZ38g",
+  year: "2025",
+  credits: ["Directed by Luca Martinez"],
+  stills: [
+    "/images/NBC%204%20Streetwear%20images/NBC%20Streetwear%20Thumbnail.png",
+    "/images/NBC%204%20Streetwear%20images/NBC%20Image%2011.png",
+    "/images/NBC%204%20Streetwear%20images/NBC%20Image%209.png",
+    "/images/NBC%204%20Streetwear%20images/NBC%20Image%206.png",
+    "/images/NBC%204%20Streetwear%20images/NBC%20Image%205.png",
+    "/images/NBC%204%20Streetwear%20images/NBC%20Image%204.png",
+    "/images/NBC%204%20Streetwear%20images/NBC%20Image%203.png",
+    "/images/NBC%204%20Streetwear%20images/NBC%20Image%202.png",
+    "/images/NBC%204%20Streetwear%20images/NBC%20image%201.png"
+  ]
+};
+
 const amerikidRockberryJam = {
   slug: "amerikid-rockberry-jam",
   title: "Amerikid | Rockberry Jam",
@@ -87,35 +109,32 @@ const amerikidRockberryJam = {
   ]
 };
 
+const dittoAiChartered = {
+  slug: "ditto-ai-chartered",
+  title: "Ditto AI | Chartered",
+  thumbnail: "/images/Ditto Images/image 2.png",
+  category: "Commercial",
+  description: "Commercial work for Ditto AI.",
+  embedUrl: "https://youtu.be/_hw2coElxo4",
+  year: "2026",
+  credits: ["Directed by Luca Martinez"],
+  stills: [
+    "/images/Ditto Images/Screenshot 2026-04-14 at 12.21.02 AM.png",
+    "/images/Ditto Images/Screenshot 2026-04-14 at 12.21.16 AM.png",
+    "/images/Ditto Images/image 2.png"
+  ]
+};
+
 export const videosBySection = {
   selectedWork: [
     palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
-    lordsOfCatanTrailer
+    lordsOfCatanTrailer,
+    nbcStreetwearStory,
+    amerikidRockberryJam
   ],
   commercials: [
     palletIntroducingAtlas,
-    {
-      slug: "nbc-4-streetwear-story",
-      title: "NBC 4 | Streetwear Story",
-      thumbnail: "/images/NBC%204%20Streetwear%20images/NBC%20Image%2010.png",
-      category: "Commercial",
-      description: "Commercial work for NBC 4.",
-      embedUrl: "https://youtu.be/BwfqpUpZ38g",
-      year: "2025",
-      credits: ["Directed by Luca Martinez"],
-      stills: [
-        "/images/NBC%204%20Streetwear%20images/NBC%20Streetwear%20Thumbnail.png",
-        "/images/NBC%204%20Streetwear%20images/NBC%20Image%2011.png",
-        "/images/NBC%204%20Streetwear%20images/NBC%20Image%209.png",
-        "/images/NBC%204%20Streetwear%20images/NBC%20Image%206.png",
-        "/images/NBC%204%20Streetwear%20images/NBC%20Image%205.png",
-        "/images/NBC%204%20Streetwear%20images/NBC%20Image%204.png",
-        "/images/NBC%204%20Streetwear%20images/NBC%20Image%203.png",
-        "/images/NBC%204%20Streetwear%20images/NBC%20Image%202.png",
-        "/images/NBC%204%20Streetwear%20images/NBC%20image%201.png"
-      ]
-    },
     alpineStarsBuiltForTheCity,
     {
       slug: "monochrome-run",
@@ -140,7 +159,8 @@ export const videosBySection = {
       stills: ["/images/placeholder-frame.svg"]
     },
     amerikidDressCode,
-    amerikidRockberryJam
+    amerikidRockberryJam,
+    dittoAiChartered
   ],
   musicVideos: [
     {
