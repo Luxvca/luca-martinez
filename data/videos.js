@@ -35,20 +35,20 @@ const alpineStarsBuiltForTheCity = {
 
 const amerikidDressCode = {
   slug: "amerikid-dress-code",
-  title: "Amerikid - Dress Code",
-  thumbnail: "/images/Dress code Images/Image 5.png",
+  title: "Amerikid | Dress Code",
+  thumbnail: "/images/Dress Code Images/Image 2.png",
   category: "Commercial",
   description: "Commercial work for Amerikid.",
   embedUrl: "https://youtu.be/CqoVB3jqaRY",
   year: "2026",
   credits: ["Directed by Luca Martinez"],
   stills: [
-    "/images/Dress code Images/Dress code Thumbnail.png",
-    "/images/Dress code Images/Image 2.png",
-    "/images/Dress code Images/Image 3.png",
-    "/images/Dress code Images/Image 4.png",
-    "/images/Dress code Images/Image 5.png",
-    "/images/Dress code Images/Image 6.png"
+    "/images/Dress Code Images/Dress code Thumbnail.png",
+    "/images/Dress Code Images/Image 2.png",
+    "/images/Dress Code Images/Image 3.png",
+    "/images/Dress Code Images/Image 4.png",
+    "/images/Dress Code Images/Image 5.png",
+    "/images/Dress Code Images/Image 6.png"
   ]
 };
 
@@ -66,6 +66,24 @@ const lordsOfCatanTrailer = {
     "/images/Catan Trailer Images/Catan Image 2.png",
     "/images/Catan Trailer Images/Catan Image 3.png",
     "/images/Catan Trailer Images/Catan Image 4.png"
+  ]
+};
+
+const amerikidRockberryJam = {
+  slug: "amerikid-rockberry-jam",
+  title: "Amerikid | Rockberry Jam",
+  thumbnail: "/images/Rockberry Jam images/Rockberry Thumbnail.png",
+  category: "Commercial",
+  description: "Commercial work for Amerikid.",
+  embedUrl: "https://youtu.be/ivIYyMOmzUg",
+  year: "2026",
+  credits: ["Directed by Luca Martinez"],
+  stills: [
+    "/images/Rockberry Jam images/Screenshot 2026-04-14 at 12.00.59 AM.png",
+    "/images/Rockberry Jam images/Screenshot 2026-04-14 at 12.01.22 AM.png",
+    "/images/Rockberry Jam images/Screenshot 2026-04-14 at 12.01.43 AM.png",
+    "/images/Rockberry Jam images/Screenshot 2026-04-14 at 12.02.20 AM.png",
+    "/images/Rockberry Jam images/Screenshot 2026-04-14 at 12.03.12 AM.png"
   ]
 };
 
@@ -121,7 +139,8 @@ export const videosBySection = {
       credits: ["Directed by Luca Martinez"],
       stills: ["/images/placeholder-frame.svg"]
     },
-    amerikidDressCode
+    amerikidDressCode,
+    amerikidRockberryJam
   ],
   musicVideos: [
     {
