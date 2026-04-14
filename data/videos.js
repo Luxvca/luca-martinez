@@ -19,7 +19,7 @@ const palletIntroducingAtlas = {
 
 const alpineStarsBuiltForTheCity = {
   slug: "built-for-the-city-alpine-stars",
-  title: "ALPINE STARS - BUILT FOR THE CITY",
+  title: "ALPINE STARS | BUILT FOR THE CITY",
   thumbnail: "/images/Alpine Stars images/Alpine Stars Thumbnail 2.png",
   category: "Commercial",
   description: "Commercial work for Alpine Stars.",
@@ -43,6 +43,7 @@ const amerikidDressCode = {
   year: "2026",
   credits: ["Directed by Luca Martinez"],
   stills: [
+    "/images/Dress code Images/Dress code Thumbnail.png",
     "/images/Dress code Images/Image 2.png",
     "/images/Dress code Images/Image 3.png",
     "/images/Dress code Images/Image 4.png",
@@ -53,7 +54,7 @@ const amerikidDressCode = {
 
 const lordsOfCatanTrailer = {
   slug: "lords-of-catan-trailer",
-  title: "Lords of Catan Trailer",
+  title: "Lords of Catan | Trailer",
   thumbnail: "/images/Catan Trailer Images/Catan image 5.png",
   category: "Selected Work",
   description: "Trailer work for Lords of Catan.",
