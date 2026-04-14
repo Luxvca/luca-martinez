@@ -19,13 +19,13 @@ export default function VideoCard({ item }) {
             src={item.thumbnail}
             alt={item.title}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
             className={item.thumbnailPosition === "top" ? "object-cover object-top" : "object-cover"}
           />
           <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/28" />
-          <div className="absolute inset-0 z-10 flex items-center justify-center p-5 text-center">
+          <div className="absolute inset-0 z-10 flex items-center justify-center p-3 text-center md:p-5">
             <div className="max-w-[80%] opacity-0 transition duration-300 group-hover:opacity-100">
-              <h3 className="text-[10px] font-medium uppercase leading-[1.4] tracking-[0.14em] text-foreground md:text-[11px]">
+              <h3 className="text-[8px] font-medium uppercase leading-[1.35] tracking-[0.12em] text-foreground md:text-[11px] md:tracking-[0.14em]">
                 {item.title}
               </h3>
             </div>
