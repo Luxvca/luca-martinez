@@ -5,6 +5,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function VideoCard({ item }) {
+  const objectPositionClass =
+    item.thumbnailPosition === "top"
+      ? "object-cover object-top"
+      : item.thumbnailPosition === "bottom"
+        ? "object-cover object-bottom"
+        : "object-cover";
+
   return (
     <motion.div
       className="group relative block overflow-hidden bg-[#101010]"
@@ -20,7 +27,7 @@ export default function VideoCard({ item }) {
             alt={item.title}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-            className={item.thumbnailPosition === "top" ? "object-cover object-top" : "object-cover"}
+            className={objectPositionClass}
           />
           <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/28" />
           <div className="absolute inset-0 z-10 flex items-center justify-center p-3 text-center md:p-5">

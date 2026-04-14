@@ -51,6 +51,18 @@ export default async function WorkDetailPage({ params }) {
               <div className="space-y-4 text-sm leading-7 text-muted">
                 {video.year ? <p>{video.year}</p> : null}
                 <p>{video.description}</p>
+                {video.links?.map((link) => (
+                  <p key={link.href}>
+                    <a
+                      className="text-foreground transition-opacity hover:opacity-70"
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  </p>
+                ))}
                 {video.credits?.map((credit) => (
                   <p key={credit}>{credit}</p>
                 ))}

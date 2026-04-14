@@ -74,7 +74,13 @@ const nbcStreetwearStory = {
   title: "NBC 4 | Streetwear Story",
   thumbnail: "/images/NBC%204%20Streetwear%20images/NBC%20Image%2010.png",
   category: "Selected Work",
-  description: "Streetwear story for NBC 4.",
+  description: "Aired on live television.",
+  links: [
+    {
+      label: "NBC Los Angeles",
+      href: "https://www.nbclosangeles.com/video/on-air/los-angeles-streetwear-brands-find-a-common-thread-amid-immigration-raids/3761812/"
+    }
+  ],
   embedUrl: "https://youtu.be/BwfqpUpZ38g",
   year: "2025",
   credits: ["Directed by Luca Martinez"],
@@ -125,13 +131,63 @@ const dittoAiChartered = {
   ]
 };
 
+const toharNovacane = {
+  slug: "tohar-novacane",
+  title: "Tohar | Novacane",
+  thumbnail: "/images/Novacane Images/Novacane Thumbnail!.png",
+  category: "Music Video",
+  description: "Music video for Tohar.",
+  embedUrl: "https://youtu.be/jIJ6vMpGPig",
+  year: "2025",
+  credits: ["Directed by Luca Martinez"],
+  stills: [
+    "/images/Novacane Images/Screenshot 2026-04-14 at 1.10.06 AM.png"
+  ]
+};
+
+const seventyMilesCc = {
+  slug: "yt8logbj-9w",
+  title: "70miles | CC",
+  thumbnail: "/images/CC music video images/Thumbnail.png",
+  category: "Music Video",
+  description: "Music video project.",
+  embedUrl: "https://youtu.be/Yt8logBJ-9w",
+  year: "2026",
+  credits: ["Directed by Luca Martinez"],
+  stills: [
+    "/images/CC music video images/Screenshot 2026-03-19 at 1.42.09 PM.png",
+    "/images/CC music video images/Screenshot 2026-03-19 at 1.42.51 PM.png",
+    "/images/CC music video images/Screenshot 2026-03-19 at 1.43.44 PM.png",
+    "/images/CC music video images/Screenshot 2026-03-19 at 1.56.44 PM.png",
+    "/images/CC music video images/Screenshot 2026-03-19 at 1.57.31 PM.png",
+    "/images/CC music video images/Screenshot 2026-03-19 at 1.58.19 PM.png",
+    "/images/CC music video images/Screenshot 2026-03-19 at 1.58.31 PM.png",
+    "/images/CC music video images/Screenshot 2026-03-19 at 1.58.44 PM.png"
+  ]
+};
+
+const nickColemanOutTheZip = {
+  slug: "nick-coleman-out-the-zip",
+  title: "Nick Coleman | Out the Zip",
+  thumbnail: "/images/Out the Zip images/Out the zip thumbnail.png",
+  thumbnailPosition: "bottom",
+  category: "Music Video",
+  description: "Music video for Nick Coleman.",
+  embedUrl: "https://www.youtube.com/watch?v=K1DdguBLSD0",
+  year: "2026",
+  credits: ["Directed by Luca Martinez"],
+  stills: []
+};
+
 export const videosBySection = {
   selectedWork: [
     palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
-    lordsOfCatanTrailer,
     nbcStreetwearStory,
-    amerikidRockberryJam
+    amerikidRockberryJam,
+    nickColemanOutTheZip,
+    lordsOfCatanTrailer,
+    seventyMilesCc
   ],
   commercials: [
     palletIntroducingAtlas,
@@ -163,26 +219,9 @@ export const videosBySection = {
     dittoAiChartered
   ],
   musicVideos: [
-    {
-      slug: "yt8logbj-9w",
-      title: "70miles - CC",
-      thumbnail: "/images/CC music video images/Thumbnail.png",
-      category: "Music Video",
-      description: "Music video project.",
-      embedUrl: "https://youtu.be/Yt8logBJ-9w",
-      year: "2026",
-      credits: ["Directed by Luca Martinez"],
-      stills: [
-        "/images/CC music video images/Screenshot 2026-03-19 at 1.42.09 PM.png",
-        "/images/CC music video images/Screenshot 2026-03-19 at 1.42.51 PM.png",
-        "/images/CC music video images/Screenshot 2026-03-19 at 1.43.44 PM.png",
-        "/images/CC music video images/Screenshot 2026-03-19 at 1.56.44 PM.png",
-        "/images/CC music video images/Screenshot 2026-03-19 at 1.57.31 PM.png",
-        "/images/CC music video images/Screenshot 2026-03-19 at 1.58.19 PM.png",
-        "/images/CC music video images/Screenshot 2026-03-19 at 1.58.31 PM.png",
-        "/images/CC music video images/Screenshot 2026-03-19 at 1.58.44 PM.png"
-      ]
-    },
+    nickColemanOutTheZip,
+    seventyMilesCc,
+    toharNovacane,
     {
       slug: "static-bloom",
       title: "Static Bloom",
