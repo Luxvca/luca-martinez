@@ -36,7 +36,7 @@ const alpineStarsBuiltForTheCity = {
 const amerikidDressCode = {
   slug: "amerikid-dress-code",
   title: "Amerikid | Dress Code",
-  thumbnail: "/images/Dress Code Images/Image 2.png",
+  thumbnail: "/images/Dress Code Images/Dress code Thumbnail 2.png",
   category: "Commercial",
   description: "Commercial work for Amerikid.",
   embedUrl: "https://youtu.be/CqoVB3jqaRY",
@@ -100,7 +100,7 @@ const nbcStreetwearStory = {
 const amerikidRockberryJam = {
   slug: "amerikid-rockberry-jam",
   title: "Amerikid | Rockberry Jam",
-  thumbnail: "/images/Rockberry Jam images/Rockberry Thumbnail.png",
+  thumbnail: "/images/Rockberry Jam images/Thumbnail 2.png",
   category: "Commercial",
   description: "Commercial work for Amerikid.",
   embedUrl: "https://youtu.be/ivIYyMOmzUg",
@@ -179,8 +179,30 @@ const nickColemanOutTheZip = {
   stills: []
 };
 
+const nikeGetLost = {
+  slug: "nike-get-lost",
+  title: "Nike | Get Lost",
+  thumbnail: "/images/Nike Spec Ad/Thumbnail.png",
+  category: "Commercial",
+  description: "Spec ad.",
+  embedUrl: "https://youtu.be/ASRjUjPy97U",
+  year: "2026",
+  credits: ["Directed by Luca Martinez"],
+  stills: [
+    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.53.00 PM.png",
+    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.53.16 PM.png",
+    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.53.35 PM.png",
+    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.54.07 PM.png",
+    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.54.21 PM.png",
+    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.54.41 PM.png",
+    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.54.50 PM.png",
+    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.55.11 PM.png"
+  ]
+};
+
 export const videosBySection = {
   selectedWork: [
+    nikeGetLost,
     palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
     nbcStreetwearStory,
@@ -190,6 +212,7 @@ export const videosBySection = {
     seventyMilesCc
   ],
   commercials: [
+    nikeGetLost,
     palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
     {
