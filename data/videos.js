@@ -207,8 +207,7 @@ export const videosBySection = {
     alpineStarsBuiltForTheCity,
     amerikidRockberryJam,
     nickColemanOutTheZip,
-    lordsOfCatanTrailer,
-    seventyMilesCc
+    lordsOfCatanTrailer
   ],
   commercials: [
     nikeGetLost,
