@@ -29,55 +29,23 @@ export default function Treatments({ items, compact = false }) {
           </div>
         ) : null}
         <div className="grid gap-px overflow-hidden rounded-[24px] border border-line/90 bg-line/90">
-          {items.map((item) => {
-            const assets =
-              item.assets ?? (item.pdfUrl ? [{ label: "Open PDF", url: item.pdfUrl }] : []);
-
-            if (assets.length === 1) {
-              return (
-                <a
-                  key={item.title}
-                  href={assets[0].url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="grid gap-3 bg-background px-6 py-5 transition-colors duration-300 hover:bg-[#f0eee8] md:grid-cols-[1.25fr_2.1fr_auto] md:items-center"
-                >
-                  <h3 className="text-lg font-medium uppercase tracking-[0.12em] text-foreground md:text-xl">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm leading-7 text-muted">{item.description}</p>
-                  <span className="text-[11px] uppercase tracking-editorial text-muted md:justify-self-end md:text-xs">
-                    {assets[0].label}
-                  </span>
-                </a>
-              );
-            }
-
-            return (
-              <div
-                key={item.title}
-                className="grid gap-3 bg-background px-6 py-5 md:grid-cols-[1.25fr_2.1fr_auto] md:items-center"
-              >
-                <h3 className="text-lg font-medium uppercase tracking-[0.12em] text-foreground md:text-xl">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-7 text-muted">{item.description}</p>
-                <div className="flex flex-wrap gap-x-5 gap-y-2 md:justify-self-end">
-                  {assets.map((asset) => (
-                    <a
-                      key={asset.url}
-                      href={asset.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-[11px] uppercase tracking-editorial text-muted transition-colors duration-300 hover:text-foreground md:text-xs"
-                    >
-                      {asset.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+          {items.map((item) => (
+            <a
+              key={item.title}
+              href={item.pdfUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="grid gap-3 bg-background px-6 py-5 transition-colors duration-300 hover:bg-[#f0eee8] md:grid-cols-[1.25fr_2.1fr_auto] md:items-center"
+            >
+              <h3 className="text-lg font-medium uppercase tracking-[0.12em] text-foreground md:text-xl">
+                {item.title}
+              </h3>
+              <p className="text-sm leading-7 text-muted">{item.description}</p>
+              <span className="text-[11px] uppercase tracking-editorial text-muted md:justify-self-end md:text-xs">
+                {item.linkLabel ?? "Open PDF"}
+              </span>
+            </a>
+          ))}
         </div>
       </div>
     </motion.section>
