@@ -1,15 +1,18 @@
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const sans = Manrope({
-  subsets: ["latin"],
-  variable: "--font-sans"
+const sans = localFont({
+  src: "./fonts/Manrope-latin.woff2",
+  variable: "--font-sans",
+  weight: "200 800",
+  display: "swap"
 });
 
-const display = Cormorant_Garamond({
-  subsets: ["latin"],
+const display = localFont({
+  src: "./fonts/CormorantGaramond-latin.woff2",
   variable: "--font-display",
-  weight: ["400", "500", "600"]
+  weight: "300 700",
+  display: "swap"
 });
 
 export const metadata = {
