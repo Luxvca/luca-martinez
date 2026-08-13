@@ -73,7 +73,7 @@ const nbcStreetwearStory = {
   slug: "nbc-4-streetwear-story",
   title: "NBC 4 | Streetwear Story",
   thumbnail: "/images/NBC%204%20Streetwear%20images/NBC%20Streetwear%20Thumbnail.png",
-  category: "Selected Work",
+  category: "Commercial",
   description: "Aired on live television.",
   links: [
     {
@@ -205,7 +205,6 @@ export const videosBySection = {
     nikeGetLost,
     palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
-    nbcStreetwearStory,
     amerikidRockberryJam,
     nickColemanOutTheZip,
     lordsOfCatanTrailer,
@@ -215,6 +214,7 @@ export const videosBySection = {
     nikeGetLost,
     palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
+    nbcStreetwearStory,
     {
       slug: "monochrome-run",
       title: "Monochrome Run",
