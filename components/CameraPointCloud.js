@@ -465,9 +465,9 @@ function CameraScene({ modelType, activeHotspot }) {
       }}
     >
       <Canvas camera={{ position: [0, 0, 8.2], fov: 48, near: 0.1, far: 100 }} dpr={[1, 2]} gl={{ alpha: true }}>
-        <Suspense fallback={<FallbackPointCloud pointer={pointer} activeHotspot={activeHotspot} />}>
+        <Suspense fallback={null}>
           <SceneErrorBoundary
-            fallback={<FallbackPointCloud pointer={pointer} activeHotspot={activeHotspot} />}
+            fallback={null}
           >
             {modelType === "glb" ? (
               <ModelPointCloudGLB pointer={pointer} activeHotspot={activeHotspot} scatter={scatter} />
@@ -491,7 +491,7 @@ function CameraScene({ modelType, activeHotspot }) {
 }
 
 export default function CameraPointCloud({ activeHotspot }) {
-  const [modelType, setModelType] = useState(null);
+  const [modelType, setModelType] = useState(undefined);
 
   useEffect(() => {
     let ignore = false;
@@ -524,6 +524,14 @@ export default function CameraPointCloud({ activeHotspot }) {
       ignore = true;
     };
   }, []);
+
+  if (modelType === undefined) {
+    return <div className="h-full w-full" aria-hidden="true" />;
+  }
+
+  if (modelType === null) {
+    return <CameraScene modelType={null} activeHotspot={activeHotspot} />;
+  }
 
   return <CameraScene modelType={modelType} activeHotspot={activeHotspot} />;
 }

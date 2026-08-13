@@ -72,7 +72,7 @@ const lordsOfCatanTrailer = {
 const nbcStreetwearStory = {
   slug: "nbc-4-streetwear-story",
   title: "NBC 4 | Streetwear Story",
-  thumbnail: "/images/NBC%204%20Streetwear%20images/NBC%20Image%2010.png",
+  thumbnail: "/images/NBC%204%20Streetwear%20images/NBC%20Streetwear%20Thumbnail.png",
   category: "Selected Work",
   description: "Aired on live television.",
   links: [
