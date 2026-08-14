@@ -11,7 +11,7 @@ export const navigationLinks = [
     href: "/commercials",
     id: "commercials",
     position:
-      "right-6 top-24 text-right md:right-8 md:top-12 lg:right-10 lg:top-16"
+      "right-6 top-36 text-right md:right-8 md:top-28 lg:right-10 lg:top-32"
   },
   {
     label: "MV & Social",

@@ -17,7 +17,7 @@ export default function PageHeader({ currentPath }) {
         </p>
       </div>
 
-      <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-editorial text-muted md:max-w-[42rem] md:justify-end md:text-xs">
+      <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-editorial text-muted md:flex-nowrap md:justify-end md:text-xs">
         {navigationLinks.map((link) => {
           const isActive = currentPath === link.href;
 
@@ -25,7 +25,7 @@ export default function PageHeader({ currentPath }) {
             <Link
               key={link.href}
               href={link.href}
-              className={`transition-colors duration-300 ${
+              className={`whitespace-nowrap transition-colors duration-300 ${
                 isActive ? "text-foreground" : "hover:text-foreground"
               }`}
             >

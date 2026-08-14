@@ -241,6 +241,33 @@ export const videosBySection = {
     dittoAiChartered
   ],
   musicVideos: [
+    {
+      slug: "cal-gameday",
+      title: "Cal | Gameday",
+      thumbnail: "/images/social/cal-gameday.jpg",
+      category: "MV & Social",
+      description: "Cal gameday social content.",
+      embedUrl: "https://youtu.be/QNJY7DjWEOo",
+      stills: ["/images/social/cal-gameday.jpg"]
+    },
+    {
+      slug: "cal-football-edit",
+      title: "Cal | Football Edit",
+      thumbnail: "/images/social/cal-football-edit.jpg",
+      category: "MV & Social",
+      description: "Cal football edit.",
+      embedUrl: "https://youtu.be/_2I1uAccNS4",
+      stills: ["/images/social/cal-football-edit.jpg"]
+    },
+    {
+      slug: "mediterranean-fc",
+      title: "Mediterranean FC",
+      thumbnail: "/images/social/mediterranean-fc.jpg",
+      category: "MV & Social",
+      description: "Mediterranean FC social content.",
+      embedUrl: "https://youtu.be/DZ6lEIhJA7E",
+      stills: ["/images/social/mediterranean-fc.jpg"]
+    },
     nickColemanOutTheZip,
     seventyMilesCc,
     toharNovacane,
