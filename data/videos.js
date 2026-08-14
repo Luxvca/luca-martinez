@@ -254,6 +254,24 @@ export const videosBySection = {
   ],
   social: [
     {
+      slug: "el-noviciado",
+      title: "El Noviciado",
+      thumbnail: "/images/social/el-noviciado-cover.jpg",
+      category: "Social",
+      description: "El Noviciado social content.",
+      embedUrl: "https://youtu.be/bhbsMJLzsPs",
+      stills: ["/images/social/el-noviciado-cover.jpg"]
+    },
+    {
+      slug: "evergood-sausages",
+      title: "Evergood Sausages x College Gameday",
+      thumbnail: "/images/social/evergood-cover.jpg",
+      category: "Social",
+      description: "Evergood Sausages x College Gameday social content.",
+      embedUrl: "https://youtu.be/KMCG1Yg4lYI",
+      stills: ["/images/social/evergood-cover.jpg"]
+    },
+    {
       slug: "cal-gameday",
       title: "Cal | Gameday",
       thumbnail: "/images/social/cal-gameday.jpg",
