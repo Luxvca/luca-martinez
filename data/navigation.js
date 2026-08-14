@@ -14,8 +14,8 @@ export const navigationLinks = [
       "right-6 top-36 text-right md:right-8 md:top-28 lg:right-10 lg:top-32"
   },
   {
-    label: "MV & Social",
-    href: "/music-videos",
+    label: "Social",
+    href: "/social",
     id: "musicVideos",
     position:
       "right-6 bottom-32 text-right md:right-8 md:bottom-20 lg:right-10 lg:bottom-24"

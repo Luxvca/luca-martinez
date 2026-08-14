@@ -240,12 +240,12 @@ export const videosBySection = {
     amerikidRockberryJam,
     dittoAiChartered
   ],
-  musicVideos: [
+  social: [
     {
       slug: "cal-gameday",
       title: "Cal | Gameday",
       thumbnail: "/images/social/cal-gameday.jpg",
-      category: "MV & Social",
+      category: "Social",
       description: "Cal gameday social content.",
       embedUrl: "https://youtu.be/QNJY7DjWEOo",
       stills: ["/images/social/cal-gameday.jpg"]
@@ -254,7 +254,7 @@ export const videosBySection = {
       slug: "cal-football-edit",
       title: "Cal | Football Edit",
       thumbnail: "/images/social/cal-football-edit.jpg",
-      category: "MV & Social",
+      category: "Social",
       description: "Cal football edit.",
       embedUrl: "https://youtu.be/_2I1uAccNS4",
       stills: ["/images/social/cal-football-edit.jpg"]
@@ -263,11 +263,13 @@ export const videosBySection = {
       slug: "mediterranean-fc",
       title: "Mediterranean FC",
       thumbnail: "/images/social/mediterranean-fc.jpg",
-      category: "MV & Social",
+      category: "Social",
       description: "Mediterranean FC social content.",
       embedUrl: "https://youtu.be/DZ6lEIhJA7E",
       stills: ["/images/social/mediterranean-fc.jpg"]
-    },
+    }
+  ],
+  musicVideos: [
     nickColemanOutTheZip,
     seventyMilesCc,
     toharNovacane,
@@ -294,7 +296,26 @@ export const videosBySection = {
       stills: ["/images/placeholder-frame.svg"]
     }
   ],
-  threeDAnimation: []
+  threeDAnimation: [
+    {
+      slug: "college-gameday",
+      title: "College Gameday",
+      thumbnail: "/images/3d/college-gameday.jpg",
+      category: "3D Animation",
+      description: "3D-animated college gameday piece.",
+      embedUrl: "https://youtu.be/g0liPObbSSc",
+      stills: ["/images/3d/college-gameday.jpg"]
+    },
+    {
+      slug: "gemini-beauty",
+      title: "Gemini Beauty",
+      thumbnail: "/images/3d/gemini-beauty.jpg",
+      category: "3D Animation",
+      description: "3D product animation for Gemini Beauty.",
+      embedUrl: "https://youtu.be/vQwByBr2Jck",
+      stills: ["/images/3d/gemini-beauty.jpg"]
+    }
+  ]
 };
 
 export function getEmbedUrl(url) {

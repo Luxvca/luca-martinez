@@ -7,6 +7,15 @@ const nextConfig = {
         hostname: "images.unsplash.com"
       }
     ]
+  },
+  async redirects() {
+    return [
+      {
+        source: "/music-videos",
+        destination: "/social",
+        permanent: true
+      }
+    ];
   }
 };
 
