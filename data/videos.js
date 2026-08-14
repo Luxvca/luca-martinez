@@ -313,7 +313,7 @@ export const videosBySection = {
       slug: "college-gameday",
       title: "College Gameday",
       thumbnail: "/images/3d/college-gameday.jpg",
-      category: "3D Animation",
+      category: "3D",
       description: "3D-animated college gameday piece.",
       embedUrl: "https://youtu.be/g0liPObbSSc",
       stills: ["/images/3d/college-gameday.jpg"]
@@ -322,7 +322,7 @@ export const videosBySection = {
       slug: "gemini-beauty",
       title: "Gemini Beauty",
       thumbnail: "/images/3d/gemini-beauty.jpg",
-      category: "3D Animation",
+      category: "3D",
       description: "3D product animation for Gemini Beauty.",
       embedUrl: "https://youtu.be/vQwByBr2Jck",
       stills: ["/images/3d/gemini-beauty.jpg"]

@@ -21,7 +21,7 @@ export const navigationLinks = [
       "right-6 bottom-32 text-right md:right-8 md:bottom-20 lg:right-10 lg:bottom-24"
   },
   {
-    label: "3D Animation",
+    label: "3D",
     href: "/3d-animation",
     id: "threeDAnimation",
     position:

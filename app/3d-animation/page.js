@@ -3,7 +3,7 @@ import VideoGrid from "@/components/VideoGrid";
 import { videosBySection } from "@/data/videos";
 
 export const metadata = {
-  title: "3D Animation | Luca Martinez"
+  title: "3D | Luca Martinez"
 };
 
 export default function ThreeDAnimationPage() {
@@ -14,7 +14,7 @@ export default function ThreeDAnimationPage() {
     <PageLayout
       currentPath="/3d-animation"
       eyebrow="Motion"
-      title="3D Animation"
+      title="3D"
       description="Computer-generated and 3D-animated work."
     >
       {hasItems ? (
