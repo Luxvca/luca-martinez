@@ -314,7 +314,8 @@ export const videosBySection = {
       description: "3D product animation for Gemini Beauty.",
       embedUrl: "https://youtu.be/vQwByBr2Jck",
       stills: ["/images/3d/gemini-beauty.jpg"]
-    }
+    },
+    lordsOfCatanTrailer
   ]
 };
 
