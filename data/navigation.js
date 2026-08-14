@@ -14,11 +14,18 @@ export const navigationLinks = [
       "right-6 top-24 text-right md:right-8 md:top-12 lg:right-10 lg:top-16"
   },
   {
-    label: "Music Videos",
+    label: "MV & Social",
     href: "/music-videos",
     id: "musicVideos",
     position:
       "right-6 bottom-32 text-right md:right-8 md:bottom-20 lg:right-10 lg:bottom-24"
+  },
+  {
+    label: "3D Animation",
+    href: "/3d-animation",
+    id: "threeDAnimation",
+    position:
+      "left-1/2 top-16 -translate-x-1/2 text-center md:top-10 lg:top-12"
   },
   {
     label: "Treatments",

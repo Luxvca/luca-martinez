@@ -266,7 +266,8 @@ export const videosBySection = {
       credits: ["Directed by Luca Martinez"],
       stills: ["/images/placeholder-frame.svg"]
     }
-  ]
+  ],
+  threeDAnimation: []
 };
 
 export function getEmbedUrl(url) {

@@ -3,7 +3,7 @@ import VideoGrid from "@/components/VideoGrid";
 import { videosBySection } from "@/data/videos";
 
 export const metadata = {
-  title: "Music Videos | Luca Martinez"
+  title: "MV & Social | Luca Martinez"
 };
 
 export default function MusicVideosPage() {
@@ -11,8 +11,8 @@ export default function MusicVideosPage() {
     <PageLayout
       currentPath="/music-videos"
       eyebrow="Performance"
-      title="Music Videos"
-      description="Visual worlds built around rhythm, silhouette, and performance, with room for texture and negative space."
+      title="MV & Social"
+      description="Music videos and short-form social content built around rhythm, performance, and momentum."
     >
       <VideoGrid items={videosBySection.musicVideos} />
     </PageLayout>
