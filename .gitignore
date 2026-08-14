@@ -1,6 +1,9 @@
 .DS_Store
 .next/
 node_modules/
+
+# Large local source video files — hosted on YouTube, never commit these
+/Social Content/
 .vercel/
 out/
 npm-debug.log*
