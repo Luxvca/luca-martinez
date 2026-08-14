@@ -327,7 +327,8 @@ export const videosBySection = {
       embedUrl: "https://youtu.be/vQwByBr2Jck",
       stills: ["/images/3d/gemini-beauty.jpg"]
     },
-    lordsOfCatanTrailer
+    lordsOfCatanTrailer,
+    alpineStarsBuiltForTheCity
   ]
 };
 
