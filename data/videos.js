@@ -200,9 +200,20 @@ const nikeGetLost = {
   ]
 };
 
+const dodgersGame = {
+  slug: "dodgers-game",
+  title: "Dodgers Game",
+  thumbnail: "/images/commercials/dodgers-game.jpg",
+  category: "Commercial",
+  description: "Dodgers gameday spot.",
+  embedUrl: "https://youtu.be/4Og9phMz9ew",
+  stills: ["/images/commercials/dodgers-game.jpg"]
+};
+
 export const videosBySection = {
   selectedWork: [
     nikeGetLost,
+    dodgersGame,
     palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
     amerikidRockberryJam,
@@ -211,15 +222,7 @@ export const videosBySection = {
   ],
   commercials: [
     nikeGetLost,
-    {
-      slug: "dodgers-game",
-      title: "Dodgers Game",
-      thumbnail: "/images/commercials/dodgers-game.jpg",
-      category: "Commercial",
-      description: "Dodgers gameday spot.",
-      embedUrl: "https://youtu.be/4Og9phMz9ew",
-      stills: ["/images/commercials/dodgers-game.jpg"]
-    },
+    dodgersGame,
     palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
     nbcStreetwearStory,
