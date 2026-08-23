@@ -28,17 +28,10 @@ export const navigationLinks = [
       "left-1/2 top-16 -translate-x-1/2 text-center md:top-10 lg:top-12"
   },
   {
-    label: "Treatments",
-    href: "/treatments",
-    id: "treatments",
-    position:
-      "left-6 bottom-40 md:left-8 md:bottom-28 lg:left-10 lg:bottom-32"
-  },
-  {
     label: "Contact",
     href: "/contact",
     id: "contact",
     position:
-      "left-1/2 bottom-10 -translate-x-1/2 text-center md:bottom-8"
+      "left-6 bottom-32 md:left-8 md:bottom-20 lg:left-10 lg:bottom-24"
   }
 ];
