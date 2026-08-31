@@ -19,9 +19,6 @@ export default function Contact({ compact = false }) {
           </p>
         ) : null}
         <div className="mt-6 max-w-3xl space-y-4">
-          <p className="text-base leading-8 text-muted md:text-lg">
-            US | THE TEAM:
-          </p>
           <div className="space-y-3 text-base leading-8 text-muted md:text-lg">
             <p>
               email:{" "}
@@ -60,7 +57,7 @@ export default function Contact({ compact = false }) {
           </div>
           <div className="pt-10 text-base leading-8 text-muted md:pt-14 md:text-lg">
             <p>Los Angeles, CA</p>
-            <p>Bachelor of Arts, UC Berkeley Film Studies</p>
+            <p>Bachelor of Arts, UC Berkeley Film</p>
           </div>
         </div>
       </div>

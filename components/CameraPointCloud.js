@@ -15,7 +15,8 @@ const hotspotPoses = {
   commercials: { x: -0.64, y: 0.74 },
   musicVideos: { x: 0.64, y: 0.74 },
   treatments: { x: 0.64, y: -0.74 },
-  contact: { x: 0.88, y: 0 }
+  threeDAnimation: { x: -0.74, y: 0 },
+  contact: { x: 0.64, y: -0.74 }
 };
 
 const POINT_GRID_STEP = 0.024;

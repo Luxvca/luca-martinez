@@ -4,34 +4,34 @@ export const navigationLinks = [
     href: "/selected-work",
     id: "selectedWork",
     position:
-      "left-6 top-36 md:left-8 md:top-28 lg:left-10 lg:top-32"
+      "left-16 top-44 md:left-20 md:top-36 lg:left-24 lg:top-40"
   },
   {
     label: "Commercials",
     href: "/commercials",
     id: "commercials",
     position:
-      "right-6 top-36 text-right md:right-8 md:top-28 lg:right-10 lg:top-32"
+      "right-16 top-44 text-right md:right-20 md:top-36 lg:right-24 lg:top-40"
   },
   {
     label: "Social",
     href: "/social",
     id: "musicVideos",
     position:
-      "right-6 bottom-32 text-right md:right-8 md:bottom-20 lg:right-10 lg:bottom-24"
+      "right-16 bottom-44 text-right md:right-20 md:bottom-36 lg:right-24 lg:bottom-40"
   },
   {
     label: "3D",
     href: "/3d-animation",
     id: "threeDAnimation",
     position:
-      "left-1/2 top-16 -translate-x-1/2 text-center md:top-10 lg:top-12"
+      "left-1/2 top-24 -translate-x-1/2 text-center md:top-16 lg:top-20"
   },
   {
     label: "Contact",
     href: "/contact",
     id: "contact",
     position:
-      "left-6 bottom-32 md:left-8 md:bottom-20 lg:left-10 lg:bottom-24"
+      "left-16 bottom-44 md:left-20 md:bottom-36 lg:left-24 lg:bottom-40"
   }
 ];
