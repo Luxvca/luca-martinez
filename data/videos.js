@@ -210,8 +210,24 @@ const dodgersGame = {
   stills: ["/images/commercials/dodgers-game.jpg"]
 };
 
+const daveMcmenaminInterview = {
+  slug: "dave-mcmenamin-interview",
+  title: "Dave McMenamin Interview",
+  thumbnail: "/images/Dave Mcmenamin/Still 1 (Thumbnail).png",
+  category: "Documentary",
+  description: "An interview I shot with ESPN's Dave McMenamin, part of a feature-length documentary currently in production about Greg Downer — Kobe Bryant's legendary high school coach from Lower Merion.",
+  embedUrl: "https://youtu.be/GiJweZ4zRKk",
+  year: "2026",
+  stills: [
+    "/images/Dave Mcmenamin/Still 2.png",
+    "/images/Dave Mcmenamin/Still 3.png",
+    "/images/Dave Mcmenamin/Still 4.png"
+  ]
+};
+
 export const videosBySection = {
   selectedWork: [
+    daveMcmenaminInterview,
     nikeGetLost,
     dodgersGame,
     palletIntroducingAtlas,
