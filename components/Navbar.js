@@ -19,7 +19,7 @@ export default function Navbar({ activeHotspot, onHotspotChange }) {
           >
             <Link
               href={link.href}
-              className={`group inline-flex flex-col text-[11px] uppercase tracking-editorial transition-colors duration-300 md:text-xs ${
+              className={`group inline-flex flex-col text-xs uppercase tracking-editorial transition-colors duration-300 md:text-sm ${
                 activeHotspot === link.id ? "text-foreground" : "text-muted hover:text-foreground"
               }`}
               onMouseEnter={() => onHotspotChange?.(link.id)}
@@ -27,7 +27,10 @@ export default function Navbar({ activeHotspot, onHotspotChange }) {
               onFocus={() => onHotspotChange?.(link.id)}
               onBlur={() => onHotspotChange?.(null)}
             >
-              <span>{link.label}</span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="inline-block h-2.5 w-2.5 shrink-0 bg-red-600" />
+                {link.label}
+              </span>
               <span
                 className={`mt-2 h-px transition-all duration-500 ${
                   activeHotspot === link.id ? "w-full bg-foreground" : "w-0 bg-foreground group-hover:w-full"
@@ -49,7 +52,10 @@ export default function Navbar({ activeHotspot, onHotspotChange }) {
             onMouseEnter={() => onHotspotChange?.(link.id)}
             onMouseLeave={() => onHotspotChange?.(null)}
           >
-            {link.label}
+            <span className="inline-flex items-center gap-1.5">
+              <span className="inline-block h-2.5 w-2.5 shrink-0 bg-red-600" />
+              {link.label}
+            </span>
           </Link>
         ))}
       </nav>

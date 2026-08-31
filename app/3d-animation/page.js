@@ -18,7 +18,7 @@ export default function ThreeDAnimationPage() {
       description="Computer-generated and 3D-animated work."
     >
       {hasItems ? (
-        <VideoGrid items={items} />
+        <VideoGrid items={items} cols={2} />
       ) : (
         <p className="text-sm uppercase tracking-editorial text-muted md:text-xs">
           Coming soon.
