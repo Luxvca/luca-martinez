@@ -7,9 +7,9 @@ node_modules/
 
 # Personal memorial media — this repo is public. Real photos, voicemails and
 # video stay local and are uploaded straight to the host, never committed here.
-/memorial/media/**
-!/memorial/media/*/
-!/memorial/media/**/placeholder-*
+/mom-memorial/media/**
+!/mom-memorial/media/*/
+!/mom-memorial/media/**/placeholder-*
 .vercel/
 out/
 npm-debug.log*
