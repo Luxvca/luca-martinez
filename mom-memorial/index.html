@@ -86,6 +86,32 @@ const SITE = {
 
 const MEMORIES = [
 
+  /* ─── REAL MEMORIES ───────────────────────────────────────
+     Run ./setup-media.sh first — it prints the exact filename
+     for each line below. Add `date:` when you know the year.
+     ─────────────────────────────────────────────────────── */
+
+  // Her voice, on its own.
+  {
+    date: "Thanksgiving",              // ← add the year when you know it
+    audio: "audio/mom-thanksgiving.m4a",
+    caption: "Thanksgiving"            // ← or whatever you want written under it
+  },
+
+  // The two photographs. Replace the filenames with the ones
+  // setup-media.sh printed, and add a date or a title if you like.
+  {
+    image: "images/REPLACE-WITH-FIRST-FILENAME.jpg"
+  },
+  {
+    image: "images/REPLACE-WITH-SECOND-FILENAME.jpg"
+  },
+
+
+  /* ─── PLACEHOLDERS — delete as you add real ones ──────────
+     These show the remaining layouts. Nothing below is real.
+     ─────────────────────────────────────────────────────── */
+
   // ① Everything at once — photo, her voice, and writing.
   {
     date: "Summer 1994",
@@ -94,21 +120,6 @@ const MEMORIES = [
     image: "__placeholder__",
     audio: "__placeholder__",
     sort: "1994-06"
-  },
-
-  // ② A photograph on its own. No words, no sound.
-  {
-    date: "Sometime in the late nineties",
-    image: "__placeholder__",
-    sort: "1997"
-  },
-
-  // ③ Her voice, with one line under it.
-  {
-    date: "March 2001",
-    audio: "__placeholder__",
-    caption: "A placeholder for a voicemail",
-    sort: "2001-03"
   },
 
   // ④ Written only — a fragment in the space.
