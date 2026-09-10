@@ -1,0 +1,1378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michelle Lucas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<style>
+/* ============================================================
+   Fonts — loaded from disk first so the page is identical
+   offline. The Google Fonts link above is only a fallback for
+   when this is hosted.
+   ============================================================ */
+@font-face{
+  font-family:"Cormorant Local";
+  src:url("fonts/CormorantGaramond-latin.woff2") format("woff2");
+  font-weight:300 700; font-display:swap;
+}
+@font-face{
+  font-family:"Manrope Local";
+  src:url("fonts/Manrope-latin.woff2") format("woff2");
+  font-weight:300 700; font-display:swap;
+}
+</style>
+</head>
+<body>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   ▓▓▓  EDIT BELOW THIS LINE.  EVERYTHING ELSE IS MACHINERY.  ▓▓▓
+   ════════════════════════════════════════════════════════════ */
+
+
+/* ── WHO THIS IS FOR ───────────────────────────────────────── */
+
+const SITE = {
+
+  // Shown on the entry screen. The formal name, the still one.
+  name: "Michelle Lucas",
+
+  // Shown small, beneath her name. Leave as "" to show nothing.
+  dates: "",
+
+  // One nickname is chosen when someone arrives and stays with
+  // them for that whole visit, in the corner of the screen.
+  // Next visit, a different one. Add or remove freely.
+  nicknames: ["Michelle", "Mama", "Mama Cosma", "Nami", "Shell", "Mama Lamb", "Shelicious"],
+
+  // Optional line on the entry screen, under her name.
+  // Leave as "" for her name alone — often stronger.
+  opening: "",
+
+  // The word on the button that begins it.
+  enter: "Enter"
+};
+
+
+/* ── THE MEMORIES ──────────────────────────────────────────────
+
+   Add an object per memory. Every field is optional except
+   `sort`. Leave out what you don't have — omit the line
+   entirely rather than leaving it empty.
+
+     sort    REQUIRED. Orders the timeline. "1994", "1994-06",
+             or "1994-06-12" — whatever precision you have.
+     date    What the viewer reads. Free text. "Summer 1994",
+             "Sometime in the nineties" — anything.
+     title   Short heading.
+     text    Body. Any length. Line breaks are kept.
+     audio   "audio/her-voice.m4a"
+     images  ["images/one.jpg", "images/two.jpg"]
+     video   "video/clip.mp4"
+     caption Small line under audio when there's no other text.
+
+   A memory renders itself from whatever it holds. There are no
+   types. If a file is missing or misnamed, that piece is simply
+   treated as absent — you'll never get a broken player.
+
+   ⚠ The entries below are PLACEHOLDERS, written to show you the
+   layouts at realistic lengths. Delete them as you add real ones.
+   ─────────────────────────────────────────────────────────── */
+
+const MEMORIES = [
+
+  // ① Everything at once — photo, her voice, and writing.
+  {
+    sort: "1994-06",
+    date: "Summer 1994",
+    title: "A placeholder moment",
+    text: "This is placeholder text, sized to show you how a longer memory sits on the page — roughly the length of a paragraph you might actually write. Replace it with the real thing. Line breaks are preserved, so you can write in stanzas if that's how it comes out.",
+    images: ["__placeholder__"],
+    audio: "__placeholder__"
+  },
+
+  // ② A photograph on its own. No words, no sound.
+  {
+    sort: "1997",
+    date: "Sometime in the late nineties",
+    images: ["__placeholder__"]
+  },
+
+  // ③ Her voice, with one line under it.
+  {
+    sort: "2001-03",
+    date: "March 2001",
+    audio: "__placeholder__",
+    caption: "A placeholder for a voicemail"
+  },
+
+  // ④ Written only — a fragment in the space.
+  {
+    sort: "2004",
+    date: "2004",
+    title: "A written fragment",
+    text: "Some memories have no photograph and no recording. They're just something you remember, and they belong on the timeline exactly as much as the rest."
+  },
+
+  // ⑤ Several photographs — becomes a slow sequence.
+  {
+    sort: "2009-08",
+    date: "August 2009",
+    title: "More than one photograph",
+    text: "When a memory holds several images they present one at a time, unhurried, rather than as a grid.",
+    images: ["__placeholder__", "__placeholder__", "__placeholder__"]
+  },
+
+  // ⑥ A moment with nothing attached but its name and its date.
+  {
+    sort: "2014-11-02",
+    date: "2 November 2014",
+    title: "A marker on the line"
+  },
+
+  // ⑦ Video. The file below doesn't exist yet, which is the
+  //    point — this renders as text until you drop one in.
+  {
+    sort: "2019-12",
+    date: "December 2019",
+    title: "A memory waiting for its video",
+    text: "This one points at a file that isn't there. Notice there's no broken player and no empty frame — the missing piece is simply treated as absent. Drop a file at media/video/ and it appears.",
+    video: "video/not-here-yet.mp4"
+  }
+
+];
+
+
+/* ════════════════════════════════════════════════════════════
+   ▓▓▓  EDIT ABOVE THIS LINE.  MACHINERY FOLLOWS.             ▓▓▓
+   ════════════════════════════════════════════════════════════ */
+</script>
+
+<style>
+/* ============================================================
+   Tokens. This page commits to one visual world — a dark,
+   warm corridor — because depth only reads on a dark ground.
+   Every colour is painted explicitly so it holds on any host.
+   ============================================================ */
+:root{
+  --ink:        #0e0c0a;   /* warm charcoal ground            */
+  --ink-deep:   #070605;   /* the far end of the corridor     */
+  --surface:    #16130f;   /* card ground                     */
+  --linen:      #ece6dc;   /* off-white text                  */
+  --linen-dim:  #9c948a;   /* secondary                       */
+  --linen-faint:#5f594f;   /* tertiary                        */
+  --sand:       #c8a87d;   /* the one accent                  */
+  --hair:       rgba(200,168,125,.14);
+  --hair-soft:  rgba(200,168,125,.07);
+
+  --serif: "Cormorant Local","Cormorant Garamond",Cormorant,Georgia,"Times New Roman",serif;
+  --sans:  "Manrope Local",Manrope,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --slow: 1.1s;
+  --card-w: 380px;
+
+  color-scheme: dark;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--linen);
+  font-family:var(--serif);
+  font-weight:300;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* A slow warm vignette. The corridor gets darker as it recedes. */
+body::after{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:5;
+  background:radial-gradient(ellipse 92% 74% at 50% 50%,transparent 34%,var(--ink-deep) 100%);
+  opacity:.7;
+}
+
+:focus-visible{
+  outline:1px solid var(--sand);
+  outline-offset:3px;
+}
+
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+
+.label{
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:400;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--linen-faint);
+}
+
+/* ============================================================
+   Entry gate
+   ============================================================ */
+#gate{
+  position:fixed; inset:0; z-index:40;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:0;
+  background:var(--ink);
+  padding:32px;
+  text-align:center;
+  transition:opacity 1.6s var(--ease), visibility 1.6s;
+}
+#gate.gone{ opacity:0; visibility:hidden; }
+
+#gate-name{
+  font-size:clamp(2.6rem,7vw,4.6rem);
+  font-weight:300;
+  line-height:1.1;
+  letter-spacing:.03em;
+  margin:0;
+  text-wrap:balance;
+  animation:rise 2.4s var(--ease) both;
+}
+#gate-dates{
+  margin-top:20px;
+  letter-spacing:.24em;
+  animation:rise 2.4s var(--ease) .3s both;
+}
+#gate-opening{
+  margin-top:28px;
+  max-width:34ch;
+  font-size:1.15rem;
+  font-style:italic;
+  line-height:1.8;
+  color:var(--linen-dim);
+  animation:rise 2.4s var(--ease) .5s both;
+}
+#gate-enter{
+  margin-top:64px;
+  padding:14px 40px;
+  font-family:var(--sans);
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--sand);
+  border:1px solid var(--hair);
+  border-radius:1px;
+  transition:background .8s var(--ease), border-color .8s var(--ease);
+  animation:rise 2.4s var(--ease) .8s both;
+}
+#gate-enter:hover,#gate-enter:focus-visible{
+  background:rgba(200,168,125,.06);
+  border-color:rgba(200,168,125,.34);
+}
+#gate-note{
+  margin-top:22px;
+  max-width:30ch;
+  line-height:1.7;
+  animation:rise 2.4s var(--ease) 1s both;
+}
+
+@keyframes rise{
+  from{ opacity:0; transform:translateY(14px); }
+  to  { opacity:1; transform:none; }
+}
+
+/* ============================================================
+   Depth corridor
+   ============================================================ */
+#stage{
+  position:fixed; inset:0;
+  perspective:1400px;
+  perspective-origin:50% 50%;
+  opacity:0;
+  transition:opacity 1.4s var(--ease);
+}
+#stage.on{ opacity:1; }
+
+#world{
+  position:absolute; inset:0;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+
+/* The spine — a hairline running away into the dark. */
+#spine{
+  position:absolute;
+  left:50%; top:50%;
+  width:1px; height:1px;
+  transform-style:preserve-3d;
+}
+#spine i{
+  position:absolute;
+  left:-130px; top:0;
+  width:260px; height:1px;
+  background:var(--sand);
+}
+
+.card{
+  position:absolute;
+  left:50%; top:50%;
+  width:var(--card-w);
+  margin-left:calc(var(--card-w) / -2);
+  transform-style:preserve-3d;
+  will-change:transform,opacity;
+  cursor:pointer;
+  border:0;
+  padding:0;
+  text-align:left;
+  display:none;
+}
+.card.live{ display:block; }
+
+.card-inner{
+  background:var(--surface);
+  border:1px solid var(--hair-soft);
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  transition:border-color .7s var(--ease);
+}
+.card:hover .card-inner,
+.card:focus-visible .card-inner{ border-color:var(--hair); }
+
+.card-img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  background:#100e0b;
+}
+.card-title{
+  font-size:1.5rem;
+  font-weight:400;
+  line-height:1.25;
+  margin:0;
+  text-wrap:balance;
+}
+.card-text{
+  font-size:1.02rem;
+  line-height:1.75;
+  color:var(--linen-dim);
+  margin:0;
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.card-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+/* The mark on a memory that carries her voice. */
+.voice{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-family:var(--sans);
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--sand);
+}
+.voice::before{
+  content:"";
+  width:5px; height:5px;
+  border-radius:50%;
+  background:var(--sand);
+  animation:breathe 4s ease-in-out infinite;
+}
+@keyframes breathe{
+  0%,100%{ opacity:.35; }
+  50%    { opacity:1; }
+}
+
+/* A memory holding only words gets no card — just the words. */
+.card.bare .card-inner{
+  background:none;
+  border:none;
+  padding:0;
+}
+.card.bare .card-title{ font-size:1.7rem; }
+.card.bare .card-text{ color:var(--linen); }
+
+/* ============================================================
+   Horizontal view
+   ============================================================ */
+#flat{
+  position:fixed; inset:0; z-index:10;
+  overflow-x:auto; overflow-y:hidden;
+  opacity:0; visibility:hidden;
+  transition:opacity 1s var(--ease), visibility 1s;
+  overscroll-behavior-x:contain;
+}
+#flat.on{ opacity:1; visibility:visible; }
+
+#rail{
+  position:relative;
+  height:100%;
+  display:flex;
+  align-items:center;
+  padding:0 max(48px,12vw);
+  gap:70px;
+  min-width:min-content;
+}
+#rail::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:50%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--hair) 6%,var(--hair) 94%,transparent);
+}
+
+.node{
+  position:relative;
+  flex:0 0 auto;
+  width:250px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  text-align:left;
+}
+.node::after{           /* the dot on the line */
+  content:"";
+  position:absolute;
+  left:0; top:50%;
+  width:7px; height:7px;
+  margin:-3px 0 0 -3px;
+  border-radius:50%;
+  background:var(--linen-faint);
+  transition:background .6s var(--ease), transform .6s var(--ease);
+}
+.node:hover::after,.node:focus-visible::after{
+  background:var(--sand);
+  transform:scale(1.5);
+}
+.node.has-audio::after{ background:var(--sand); opacity:.65; }
+
+.node-body{
+  position:absolute;
+  left:0;
+  width:230px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.node.up   .node-body{ bottom:calc(50% + 34px); }
+.node.down .node-body{ top:calc(50% + 34px); }
+
+.node-body::before{     /* connector to the line */
+  content:"";
+  position:absolute;
+  left:0;
+  width:1px; height:26px;
+  background:var(--hair);
+}
+.node.up   .node-body::before{ bottom:-30px; }
+.node.down .node-body::before{ top:-30px; }
+
+.node-img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  background:#100e0b;
+  opacity:.8;
+  transition:opacity .6s var(--ease);
+}
+.node:hover .node-img{ opacity:1; }
+.node-title{
+  font-size:1.15rem;
+  font-weight:400;
+  line-height:1.3;
+  margin:0;
+}
+.node-date{ letter-spacing:.14em; }
+
+/* ============================================================
+   Opened memory
+   ============================================================ */
+#detail{
+  position:fixed; inset:0; z-index:30;
+  background:rgba(8,7,6,.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  overflow-y:auto;
+  opacity:0; visibility:hidden;
+  transition:opacity .9s var(--ease), visibility .9s;
+}
+#detail.on{ opacity:1; visibility:visible; }
+
+#detail-scroll{
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(56px,9vh,110px) 24px;
+}
+#detail-body{
+  width:100%;
+  max-width:660px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  transform:translateY(16px);
+  transition:transform 1.1s var(--ease);
+}
+#detail.on #detail-body{ transform:none; }
+
+#detail-body .d-date{ letter-spacing:.22em; }
+#detail-body .d-title{
+  font-size:clamp(1.9rem,4.4vw,2.9rem);
+  font-weight:300;
+  line-height:1.18;
+  letter-spacing:.01em;
+  margin:0;
+  text-wrap:balance;
+}
+#detail-body .d-text{
+  font-size:1.2rem;
+  line-height:1.9;
+  color:var(--linen-dim);
+  margin:0;
+  white-space:pre-wrap;
+}
+#detail-body .d-media{
+  width:100%;
+  display:block;
+  background:#100e0b;
+}
+#detail-body .d-caption{
+  font-style:italic;
+  color:var(--linen-dim);
+  line-height:1.7;
+  margin:0;
+}
+
+/* image sequence */
+.seq{ display:flex; flex-direction:column; gap:14px; }
+.seq-dots{ display:flex; gap:8px; justify-content:center; }
+.seq-dots button{
+  width:5px; height:5px; padding:0;
+  border-radius:50%;
+  background:var(--linen-faint);
+  transition:background .5s var(--ease);
+}
+.seq-dots button[aria-current="true"]{ background:var(--sand); }
+
+/* audio */
+.player{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:20px 22px;
+  border:1px solid var(--hair);
+  background:rgba(200,168,125,.03);
+}
+.player-btn{
+  flex:0 0 auto;
+  width:34px; height:34px;
+  display:grid; place-items:center;
+  border:1px solid var(--hair);
+  border-radius:50%;
+  color:var(--sand);
+  transition:background .6s var(--ease);
+}
+.player-btn:hover{ background:rgba(200,168,125,.08); }
+.player-btn svg{ width:12px; height:12px; fill:currentColor; }
+.player-track{
+  flex:1 1 auto;
+  height:2px;
+  background:var(--hair);
+  position:relative;
+  cursor:pointer;
+}
+.player-fill{
+  position:absolute; inset:0 auto 0 0;
+  width:0;
+  background:var(--sand);
+}
+.player-time{
+  flex:0 0 auto;
+  font-family:var(--sans);
+  font-size:10px;
+  letter-spacing:.1em;
+  color:var(--linen-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+#detail-close{
+  position:fixed;
+  top:22px; right:24px;
+  z-index:31;
+  padding:10px;
+  color:var(--linen-dim);
+  transition:color .5s var(--ease);
+}
+#detail-close:hover{ color:var(--linen); }
+
+.d-nav{
+  position:fixed;
+  top:50%; margin-top:-22px;
+  z-index:31;
+  width:44px; height:44px;
+  display:grid; place-items:center;
+  color:var(--linen-faint);
+  transition:color .5s var(--ease);
+}
+.d-nav:hover{ color:var(--sand); }
+.d-nav[disabled]{ opacity:0; pointer-events:none; }
+.d-nav[hidden]{ display:none; }
+#d-prev{ left:14px; }
+#d-next{ right:14px; }
+.d-nav svg{ width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.2; }
+
+/* ============================================================
+   Persistent UI
+   ============================================================ */
+.ui{
+  position:fixed;
+  z-index:20;
+  opacity:0;
+  transition:opacity 1.6s var(--ease) .6s;
+}
+.ui.on{ opacity:1; }
+
+#nickname{
+  top:26px; left:28px;
+  font-family:var(--sans);
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--sand);
+}
+
+#views{
+  top:24px; right:28px;
+  display:flex;
+  align-items:center;
+  gap:2px;
+}
+#views button{
+  padding:8px 13px;
+  font-family:var(--sans);
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--linen-faint);
+  transition:color .6s var(--ease);
+}
+#views button[aria-pressed="true"]{ color:var(--linen); }
+#views span{ color:var(--linen-faint); opacity:.4; }
+
+#where{
+  bottom:28px; left:28px;
+  letter-spacing:.2em;
+  min-height:1em;
+  transition:opacity .5s var(--ease);
+}
+
+#sound{
+  bottom:24px; right:28px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:8px 12px;
+}
+#sound-btn{
+  width:18px; height:18px;
+  display:grid; place-items:center;
+  color:var(--linen-dim);
+  transition:color .5s var(--ease);
+}
+#sound-btn:hover{ color:var(--sand); }
+#sound-btn svg{ width:14px; height:14px; fill:currentColor; }
+#vol{
+  width:0;
+  opacity:0;
+  transition:width .7s var(--ease), opacity .7s var(--ease);
+  accent-color:var(--sand);
+  background:transparent;
+  cursor:pointer;
+}
+#sound:hover #vol,#sound:focus-within #vol{ width:74px; opacity:1; }
+
+#hint{
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%);
+  letter-spacing:.2em;
+  transition:opacity 1.4s var(--ease);
+}
+#hint.hide{ opacity:0; }
+
+/* ============================================================
+   Narrow screens
+   ============================================================ */
+@media (max-width:640px){
+  :root{ --card-w:270px; }
+  #nickname{ top:20px; left:18px; }
+  #views{ top:18px; right:16px; }
+  #where{ bottom:22px; left:18px; }
+  #sound{ bottom:16px; right:14px; }
+  #hint{ display:none; }
+  .node{ width:190px; }
+  .node-body{ width:180px; }
+  #rail{ gap:100px; padding:0 40px; }
+  #detail-body{ gap:24px; }
+  #detail-body .d-text{ font-size:1.08rem; line-height:1.8; }
+  .d-nav{ display:none; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{ animation-duration:.01ms !important; transition-duration:.15s !important; }
+  .voice::before{ animation:none; opacity:.8; }
+}
+</style>
+
+<!-- entry -->
+<div id="gate">
+  <h1 id="gate-name"></h1>
+  <div id="gate-dates" class="label"></div>
+  <p id="gate-opening"></p>
+  <button id="gate-enter"></button>
+  <div id="gate-note" class="label">Best with sound</div>
+</div>
+
+<!-- depth -->
+<div id="stage" aria-hidden="true">
+  <div id="world">
+    <div id="spine"></div>
+  </div>
+</div>
+
+<!-- horizontal -->
+<div id="flat" aria-hidden="true"><div id="rail"></div></div>
+
+<!-- opened memory -->
+<div id="detail" role="dialog" aria-modal="true" aria-hidden="true">
+  <div id="detail-scroll"><article id="detail-body"></article></div>
+</div>
+<button id="detail-close" class="ui" aria-label="Close" hidden>
+  <svg viewBox="0 0 16 16" width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.2"><path d="M2 2l12 12M14 2L2 14"/></svg>
+</button>
+<button id="d-prev" class="d-nav" aria-label="Previous memory" hidden><svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg></button>
+<button id="d-next" class="d-nav" aria-label="Next memory" hidden><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
+
+<!-- persistent -->
+<div id="nickname" class="ui"></div>
+<div id="views" class="ui">
+  <button id="v-depth" aria-pressed="true">Depth</button>
+  <span>/</span>
+  <button id="v-flat" aria-pressed="false">Timeline</button>
+</div>
+<div id="where" class="ui label"></div>
+<div id="sound" class="ui">
+  <button id="sound-btn" aria-label="Mute"></button>
+  <input id="vol" type="range" min="0" max="100" step="1" value="80" aria-label="Volume">
+</div>
+<div id="hint" class="ui label">Scroll to move</div>
+
+<script>
+(() => {
+"use strict";
+
+const $  = (s) => document.querySelector(s);
+const el = (t, c) => { const n = document.createElement(t); if (c) n.className = c; return n; };
+const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ── Placeholders ─────────────────────────────────────────────
+   Seed entries use "__placeholder__" so the page works before
+   any real media exists. Deleted automatically once you swap in
+   real paths.
+   ─────────────────────────────────────────────────────────── */
+const PH_IMG = (() => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#221d16"/><stop offset="1" stop-color="#100e0b"/>
+    </linearGradient></defs>
+    <rect width="400" height="300" fill="url(#g)"/>
+    <text x="200" y="154" text-anchor="middle" fill="#5f594f"
+      font-family="sans-serif" font-size="10" letter-spacing="3">PLACEHOLDER</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+})();
+
+/* A soft, quiet tone so the audio interface is real before her
+   recordings are in place. */
+const PH_AUDIO = (() => {
+  const rate = 8000, secs = 9, n = rate * secs;
+  const buf = new ArrayBuffer(44 + n * 2), view = new DataView(buf);
+  const str = (o, s) => { for (let i = 0; i < s.length; i++) view.setUint8(o + i, s.charCodeAt(i)); };
+  str(0, "RIFF"); view.setUint32(4, 36 + n * 2, true); str(8, "WAVEfmt ");
+  view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true);
+  view.setUint32(24, rate, true); view.setUint32(28, rate * 2, true);
+  view.setUint16(32, 2, true); view.setUint16(34, 16, true);
+  str(36, "data"); view.setUint32(40, n * 2, true);
+  for (let i = 0; i < n; i++) {
+    const t = i / rate;
+    const env = Math.min(1, t / 2) * Math.min(1, (secs - t) / 2);
+    const s = (Math.sin(2 * Math.PI * 174 * t) * .5 + Math.sin(2 * Math.PI * 261 * t) * .22) * env * .16;
+    view.setInt16(44 + i * 2, s * 32767, true);
+  }
+  return URL.createObjectURL(new Blob([buf], { type: "audio/wav" }));
+})();
+
+const resolve = (p, kind) =>
+  p === "__placeholder__" ? (kind === "audio" ? PH_AUDIO : PH_IMG) : "media/" + p;
+
+/* ── Data ───────────────────────────────────────────────────── */
+
+// Normalise: drop empties, keep only what's actually present.
+const items = MEMORIES.map((m, i) => {
+  const imgs = (m.images || []).filter(Boolean);
+  return {
+    i,
+    sort:    String(m.sort ?? ""),
+    date:    m.date || "",
+    title:   m.title || "",
+    text:    m.text || "",
+    caption: m.caption || "",
+    audio:   m.audio || "",
+    video:   m.video || "",
+    images:  imgs,
+    // pieces that turned out to be unreachable get struck off here
+    dead:    new Set()
+  };
+}).sort((a, b) => a.sort === b.sort ? a.i - b.i : (a.sort < b.sort ? -1 : 1));
+
+const N = items.length;
+const has = (m, k) => !!m[k] && !m.dead.has(k);
+const hasImg = (m) => m.images.length > 0 && !m.dead.has("images");
+
+// Deterministic scatter, so a memory sits in the same place every visit.
+const rnd = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+
+/* ── Nickname: one per visit ─────────────────────────────────── */
+const nick = (() => {
+  const list = SITE.nicknames || [];
+  if (!list.length) return "";
+  let n = null;
+  try { n = sessionStorage.getItem("nick"); } catch {}
+  if (!n || !list.includes(n)) {
+    n = list[Math.floor(Math.random() * list.length)];
+    try { sessionStorage.setItem("nick", n); } catch {}
+  }
+  return n;
+})();
+
+/* ── Sound ──────────────────────────────────────────────────── */
+const Sound = {
+  vol: .8, muted: false, cur: null, fade: null,
+
+  init() {
+    try {
+      const v = localStorage.getItem("vol");
+      if (v !== null) this.vol = clamp(parseFloat(v), 0, 1);
+      this.muted = localStorage.getItem("muted") === "1";
+    } catch {}
+    $("#vol").value = Math.round(this.vol * 100);
+    this.icon();
+  },
+  save() {
+    try {
+      localStorage.setItem("vol", String(this.vol));
+      localStorage.setItem("muted", this.muted ? "1" : "0");
+    } catch {}
+  },
+  level() { return this.muted ? 0 : this.vol; },
+  icon() {
+    $("#sound-btn").innerHTML = this.level() === 0
+      ? `<svg viewBox="0 0 16 16"><path d="M7 3L4 6H1v4h3l3 3V3z"/><path d="M11 6l4 4M15 6l-4 4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>`
+      : `<svg viewBox="0 0 16 16"><path d="M7 3L4 6H1v4h3l3 3V3z"/><path d="M10 5.5a3.4 3.4 0 010 5M12.2 3.6a6.2 6.2 0 010 8.8" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>`;
+    $("#sound-btn").setAttribute("aria-label", this.level() === 0 ? "Unmute" : "Mute");
+  },
+
+  // Never a hard start or a hard stop.
+  play(src) {
+    this.stop();
+    const a = new Audio(src);
+    a.preload = "auto";
+    a.volume = 0;
+    this.cur = a;
+    a.play().catch(() => {});
+    this.ramp(this.level(), reduced ? 200 : 1400);
+    return a;
+  },
+  ramp(to, ms, then) {
+    const a = this.cur;
+    if (!a) { then && then(); return; }
+    clearInterval(this.fade);
+    const from = a.volume, t0 = performance.now();
+    this.fade = setInterval(() => {
+      const p = clamp((performance.now() - t0) / ms, 0, 1);
+      a.volume = clamp(from + (to - from) * p, 0, 1);
+      if (p === 1) { clearInterval(this.fade); then && then(); }
+    }, 30);
+  },
+  stop() {
+    const a = this.cur;
+    if (!a) return;
+    this.cur = null;
+    clearInterval(this.fade);          // cancel any ramp still running on it
+    const ms = reduced ? 120 : 700;
+    const t0 = performance.now(), from = a.volume;
+    const id = setInterval(() => {
+      const p = clamp((performance.now() - t0) / ms, 0, 1);
+      a.volume = clamp(from * (1 - p), 0, 1);
+      if (p === 1) { clearInterval(id); a.pause(); a.removeAttribute("src"); }
+    }, 30);
+  },
+  apply() { if (this.cur) { clearInterval(this.fade); this.cur.volume = this.level(); } }
+};
+
+/* ── Depth corridor ─────────────────────────────────────────── */
+const SPACING = 900, NEAR = 480, FAR = -3400;
+
+const stage = $("#stage"), world = $("#world");
+let camTarget = 0, cam = 0, pointerX = 0, pointerY = 0, px = 0, py = 0;
+let running = false, entered = false, view = "depth";
+
+/* The spine: rungs on a floor track, receding. They converge toward
+   the vanishing point, which is what gives the corridor its floor. */
+const spineEl = $("#spine");
+const SPINE_STEP = 220, SPINE_END = -1600;
+(() => {
+  for (let z = SPINE_STEP; z > SPINE_END; z -= SPINE_STEP) {
+    const seg = el("i");
+    // Well below the cards, so the floor never cuts through a memory,
+    // and gone entirely before it reaches the vanishing point.
+    seg.style.transform = `translate3d(0,470px,${z}px)`;
+    seg.style.opacity = String(clamp(.5 * (1 - Math.abs(z) / 1600), 0, 1));
+    spineEl.appendChild(seg);
+  }
+})();
+
+const cards = items.map((m, idx) => {
+  const b = el("button", "card");
+  b.type = "button";
+  b.dataset.i = String(idx);
+  b.x = (rnd(idx) - .5) * 560;
+  b.y = (rnd(idx + 91) - .5) * 210;
+  b.built = false;
+  b.setAttribute("aria-label", m.title || m.date || `Memory ${idx + 1}`);
+  b.addEventListener("click", () => open(idx));
+  world.appendChild(b);
+  return b;
+});
+
+// A card is only built when it comes into view — this is what
+// keeps 100+ memories cheap.
+function build(b, m) {
+  if (b.built) return;
+  b.built = true;
+  const inner = el("div", "card-inner");
+
+  if (hasImg(m)) {
+    const img = el("img", "card-img");
+    img.loading = "lazy"; img.decoding = "async"; img.alt = "";
+    img.addEventListener("error", () => { m.dead.add("images"); img.remove(); });
+    img.src = resolve(m.images[0], "image");
+    inner.appendChild(img);
+  }
+  if (m.title) {
+    const h = el("div", "card-title");
+    h.textContent = m.title;
+    inner.appendChild(h);
+  }
+  const body = m.text || m.caption;
+  if (body) {
+    const p = el("div", "card-text");
+    p.textContent = body;
+    inner.appendChild(p);
+  }
+
+  const foot = el("div", "card-foot");
+  if (m.date) {
+    const d = el("div", "label");
+    d.textContent = m.date;
+    foot.appendChild(d);
+  }
+  if (has(m, "audio")) {
+    const v = el("div", "voice");
+    v.textContent = "Her voice";
+    foot.appendChild(v);
+  }
+  if (foot.children.length) inner.appendChild(foot);
+
+  if (!hasImg(m) && !has(m, "audio") && !has(m, "video")) b.classList.add("bare");
+  b.appendChild(inner);
+}
+
+function frame() {
+  const smooth = reduced ? 1 : .085;
+  cam += (camTarget - cam) * smooth;
+  px  += (pointerX - px) * .06;
+  py  += (pointerY - py) * .06;
+
+  if (!reduced) world.style.transform = `rotateY(${px * 2.4}deg) rotateX(${-py * 1.6}deg)`;
+
+  let nearest = 0, nearestD = Infinity;
+
+  for (let i = 0; i < N; i++) {
+    const b = cards[i];
+    const z = -i * SPACING + cam;
+
+    if (z > NEAR || z < FAR) {
+      if (b.classList.contains("live")) b.classList.remove("live");
+      continue;
+    }
+    if (!b.built) build(b, items[i]);
+    if (!b.classList.contains("live")) b.classList.add("live");
+
+    // fade in from the far dark, fade out as it passes the viewer
+    const far  = clamp((z - FAR) / 1500, 0, 1);
+    const near = z > 0 ? clamp(1 - z / NEAR, 0, 1) : 1;
+    b.style.opacity = String(far * near);
+    b.style.transform = `translate3d(${b.x}px,calc(-50% + ${b.y}px),${z}px)`;
+    b.style.pointerEvents = (near > .55 && far > .5) ? "auto" : "none";
+
+    const d = Math.abs(z);
+    if (d < nearestD) { nearestD = d; nearest = i; }
+  }
+
+  // the floor slides underneath you as you move
+  spineEl.style.transform = `translate3d(0,0,${cam % SPINE_STEP}px)`;
+
+  const w = $("#where");
+  const label = items[nearest] ? (items[nearest].date || "") : "";
+  if (w.textContent !== label) w.textContent = label;
+
+  if (Math.abs(camTarget - cam) > .4 || Math.abs(pointerX - px) > .001) {
+    requestAnimationFrame(frame);
+  } else {
+    running = false;
+  }
+}
+function kick() { if (!running) { running = true; requestAnimationFrame(frame); } }
+
+const maxCam = () => Math.max(0, (N - 1) * SPACING);
+function move(d) {
+  camTarget = clamp(camTarget + d, 0, maxCam());
+  kick();
+  hideHint();
+}
+
+/* input */
+addEventListener("wheel", (e) => {
+  if (view !== "depth" || !entered || $("#detail").classList.contains("on")) return;
+  move(e.deltaY * 1.5);
+}, { passive: true });
+
+let touchY = null;
+addEventListener("touchstart", (e) => { touchY = e.touches[0].clientY; }, { passive: true });
+addEventListener("touchmove", (e) => {
+  if (view !== "depth" || !entered || touchY === null) return;
+  const y = e.touches[0].clientY;
+  move((touchY - y) * 4);
+  touchY = y;
+}, { passive: true });
+addEventListener("touchend", () => { touchY = null; });
+
+addEventListener("pointermove", (e) => {
+  pointerX = (e.clientX / innerWidth - .5);
+  pointerY = (e.clientY / innerHeight - .5);
+  if (view === "depth" && entered) kick();
+});
+
+addEventListener("keydown", (e) => {
+  if (!entered) return;
+  const open_ = $("#detail").classList.contains("on");
+  if (e.key === "Escape" && open_) { close(); return; }
+  if (open_) {
+    if (e.key === "ArrowRight") step(1);
+    if (e.key === "ArrowLeft")  step(-1);
+    return;
+  }
+  if (view !== "depth") return;
+  if (e.key === "ArrowDown" || e.key === "PageDown") { e.preventDefault(); move(SPACING); }
+  if (e.key === "ArrowUp"   || e.key === "PageUp")   { e.preventDefault(); move(-SPACING); }
+  if (e.key === " ")                                 { e.preventDefault(); move(SPACING); }
+  if (e.key === "Home") { camTarget = 0; kick(); }
+  if (e.key === "End")  { camTarget = maxCam(); kick(); }
+});
+
+let hintGone = false;
+function hideHint() {
+  if (hintGone) return;
+  hintGone = true;
+  $("#hint").classList.add("hide");
+}
+
+/* ── Horizontal view ────────────────────────────────────────── */
+function buildRail() {
+  const rail = $("#rail");
+  if (rail.children.length) return;
+  items.forEach((m, idx) => {
+    const b = el("button", "node " + (idx % 2 ? "down" : "up"));
+    b.type = "button";
+    if (has(m, "audio")) b.classList.add("has-audio");
+    const body = el("div", "node-body");
+
+    if (m.date) {
+      const d = el("div", "node-date label");
+      d.textContent = m.date;
+      body.appendChild(d);
+    }
+    if (hasImg(m)) {
+      const img = el("img", "node-img");
+      img.loading = "lazy"; img.decoding = "async"; img.alt = "";
+      img.addEventListener("error", () => img.remove());
+      img.src = resolve(m.images[0], "image");
+      body.appendChild(img);
+    }
+    if (m.title) {
+      const h = el("div", "node-title");
+      h.textContent = m.title;
+      body.appendChild(h);
+    }
+    if (!m.title && !hasImg(m) && (m.text || m.caption)) {
+      const p = el("div", "node-title");
+      p.textContent = (m.text || m.caption).slice(0, 80);
+      body.appendChild(p);
+    }
+    b.appendChild(body);
+    b.addEventListener("click", () => open(idx));
+    rail.appendChild(b);
+  });
+}
+
+function setView(v) {
+  view = v;
+  $("#v-depth").setAttribute("aria-pressed", String(v === "depth"));
+  $("#v-flat").setAttribute("aria-pressed",  String(v === "flat"));
+  $("#stage").classList.toggle("on", v === "depth");
+  $("#stage").setAttribute("aria-hidden", String(v !== "depth"));
+  $("#flat").classList.toggle("on", v === "flat");
+  $("#flat").setAttribute("aria-hidden", String(v !== "flat"));
+  $("#where").style.opacity = v === "depth" ? "1" : "0";
+  if (v === "flat") {
+    buildRail();
+    // land on roughly where you were standing in the corridor
+    const idx = Math.round(cam / SPACING);
+    const node = $("#rail").children[idx];
+    if (node) node.scrollIntoView({ inline: "center", block: "nearest", behavior: reduced ? "auto" : "smooth" });
+  } else {
+    kick();
+  }
+  hideHint();
+}
+$("#v-depth").addEventListener("click", () => setView("depth"));
+$("#v-flat").addEventListener("click",  () => setView("flat"));
+
+/* horizontal wheel → horizontal scroll */
+$("#flat").addEventListener("wheel", (e) => {
+  if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+    $("#flat").scrollLeft += e.deltaY;
+    e.preventDefault();
+  }
+}, { passive: false });
+
+/* ── Opening a memory ───────────────────────────────────────── */
+let openIdx = -1;
+
+function open(idx) {
+  const m = items[idx];
+  if (!m) return;
+  openIdx = idx;
+
+  const body = $("#detail-body");
+  body.innerHTML = "";
+
+  if (m.date) {
+    const d = el("div", "d-date label");
+    d.textContent = m.date;
+    body.appendChild(d);
+  }
+  if (m.title) {
+    const h = el("h2", "d-title");
+    h.textContent = m.title;
+    body.appendChild(h);
+  }
+
+  /* video takes the visual slot when present */
+  if (has(m, "video")) {
+    const v = el("video", "d-media");
+    v.controls = true; v.playsInline = true; v.preload = "metadata";
+    v.addEventListener("error", () => { m.dead.add("video"); v.remove(); }, { once: true });
+    v.src = resolve(m.video, "video");
+    body.appendChild(v);
+  } else if (hasImg(m)) {
+    body.appendChild(sequence(m));
+  }
+
+  /* her voice */
+  if (has(m, "audio")) body.appendChild(player(m));
+
+  if (m.text) {
+    const p = el("p", "d-text");
+    p.textContent = m.text;
+    body.appendChild(p);
+  } else if (m.caption && has(m, "audio")) {
+    const p = el("p", "d-caption");
+    p.textContent = m.caption;
+    body.appendChild(p);
+  }
+
+  $("#detail").classList.add("on");
+  $("#detail").setAttribute("aria-hidden", "false");
+  $("#detail-scroll").scrollTop = 0;
+  $("#detail-close").hidden = false;
+  $("#d-prev").hidden = $("#d-next").hidden = false;
+  $("#d-prev").disabled = idx === 0;
+  $("#d-next").disabled = idx === N - 1;
+  $("#detail-close").focus();
+}
+
+function sequence(m) {
+  const wrap = el("div", "seq");
+  const img = el("img", "d-media");
+  img.decoding = "async"; img.alt = "";
+  let at = 0;
+  const srcs = m.images.slice();
+
+  img.addEventListener("error", () => {
+    srcs.splice(at, 1);
+    if (!srcs.length) { m.dead.add("images"); wrap.remove(); return; }
+    show(at % srcs.length);
+  });
+  function show(i) {
+    at = i;
+    img.src = resolve(srcs[i], "image");
+    [...dots.children].forEach((d, j) => d.setAttribute("aria-current", String(j === i)));
+  }
+  wrap.appendChild(img);
+
+  const dots = el("div", "seq-dots");
+  if (srcs.length > 1) {
+    srcs.forEach((_, i) => {
+      const d = el("button");
+      d.type = "button";
+      d.setAttribute("aria-label", `Image ${i + 1}`);
+      d.addEventListener("click", () => show(i));
+      dots.appendChild(d);
+    });
+    wrap.appendChild(dots);
+  }
+  show(0);
+  return wrap;
+}
+
+function player(m) {
+  const wrap = el("div", "player");
+  const btn = el("button", "player-btn");
+  btn.type = "button";
+  btn.setAttribute("aria-label", "Pause");
+  const PLAY  = `<svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg>`;
+  const PAUSE = `<svg viewBox="0 0 12 12"><rect x="2" y="1" width="3" height="10"/><rect x="7" y="1" width="3" height="10"/></svg>`;
+  btn.innerHTML = PAUSE;
+
+  const track = el("div", "player-track");
+  const fill  = el("div", "player-fill");
+  track.appendChild(fill);
+  const time = el("div", "player-time");
+  time.textContent = "0:00";
+
+  const a = Sound.play(resolve(m.audio, "audio"));
+
+  a.addEventListener("error", () => { m.dead.add("audio"); wrap.remove(); }, { once: true });
+  a.addEventListener("timeupdate", () => {
+    if (!a.duration) return;
+    fill.style.width = (a.currentTime / a.duration * 100) + "%";
+    const s = Math.floor(a.currentTime);
+    time.textContent = Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+  });
+  a.addEventListener("ended", () => { btn.innerHTML = PLAY; btn.setAttribute("aria-label", "Play"); });
+
+  btn.addEventListener("click", () => {
+    if (a.paused) { a.play().catch(() => {}); btn.innerHTML = PAUSE; btn.setAttribute("aria-label", "Pause"); }
+    else          { a.pause();                btn.innerHTML = PLAY;  btn.setAttribute("aria-label", "Play"); }
+  });
+  track.addEventListener("click", (e) => {
+    if (!a.duration) return;
+    const r = track.getBoundingClientRect();
+    a.currentTime = clamp((e.clientX - r.left) / r.width, 0, 1) * a.duration;
+  });
+
+  wrap.append(btn, track, time);
+  return wrap;
+}
+
+function close() {
+  Sound.stop();
+  $("#detail").classList.remove("on");
+  $("#detail").setAttribute("aria-hidden", "true");
+  $("#detail-close").hidden = true;
+  $("#d-prev").hidden = $("#d-next").hidden = true;
+  if (view === "depth" && openIdx >= 0) { camTarget = openIdx * SPACING; kick(); }
+  openIdx = -1;
+}
+function step(d) {
+  const next = openIdx + d;
+  if (next < 0 || next >= N) return;
+  open(next);
+}
+
+$("#detail-close").addEventListener("click", close);
+$("#d-prev").addEventListener("click", () => step(-1));
+$("#d-next").addEventListener("click", () => step(1));
+$("#detail").addEventListener("click", (e) => { if (e.target.id === "detail" || e.target.id === "detail-scroll") close(); });
+
+/* ── Sound controls ─────────────────────────────────────────── */
+$("#sound-btn").addEventListener("click", () => {
+  Sound.muted = !Sound.muted;
+  Sound.icon(); Sound.apply(); Sound.save();
+});
+$("#vol").addEventListener("input", (e) => {
+  Sound.vol = e.target.value / 100;
+  if (Sound.vol > 0) Sound.muted = false;
+  Sound.icon(); Sound.apply(); Sound.save();
+});
+
+/* ── Entry ──────────────────────────────────────────────────── */
+$("#gate-name").textContent = SITE.name || "";
+$("#gate-enter").textContent = SITE.enter || "Enter";
+if (SITE.dates)   $("#gate-dates").textContent = SITE.dates;   else $("#gate-dates").remove();
+if (SITE.opening) $("#gate-opening").textContent = SITE.opening; else $("#gate-opening").remove();
+$("#nickname").textContent = nick;
+if (!nick) $("#nickname").remove();
+document.title = SITE.name || "In memory";
+
+Sound.init();
+
+$("#gate-enter").addEventListener("click", () => {
+  entered = true;
+  $("#gate").classList.add("gone");
+  setTimeout(() => { $("#gate").style.display = "none"; }, 1700);
+  document.querySelectorAll(".ui").forEach((n) => n.classList.add("on"));
+  $("#stage").setAttribute("aria-hidden", "false");
+  setView("depth");
+  // unlock audio playback for the rest of the visit
+  const u = new Audio(PH_AUDIO);
+  u.volume = 0;
+  u.play().then(() => { u.pause(); u.src = ""; }).catch(() => {});
+  setTimeout(hideHint, 9000);
+});
+
+// draw the first frame behind the gate so it's already alive
+kick();
+})();
+</script>
+
+</body>
+</html>
