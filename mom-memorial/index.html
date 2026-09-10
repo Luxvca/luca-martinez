@@ -1049,7 +1049,14 @@ function build(b, m) {
   if (hasImg(m)) {
     const img = el("img", "card-img");
     img.loading = "lazy"; img.decoding = "async"; img.alt = "";
-    img.addEventListener("error", () => { m.dead.add("images"); img.remove(); });
+    img.addEventListener("error", () => {
+      m.dead.add("images");
+      img.remove();
+      // A memory whose only content failed to load has nothing left
+      // to say. Better it steps out of the corridor than stands there
+      // as an empty pool of light.
+      if (!inner.children.length) { m.empty = true; b.style.display = "none"; }
+    });
     img.src = resolve(m.images[0], "image");
     inner.appendChild(img);
   }
@@ -1094,6 +1101,7 @@ function frame() {
 
   for (let i = 0; i < N; i++) {
     const b = cards[i];
+    if (items[i].empty) continue;
     const z = -i * SPACING + cam;
 
     if (z > NEAR || z < FAR) {
@@ -1208,7 +1216,10 @@ function buildRail() {
     if (hasImg(m)) {
       const img = el("img", "node-img");
       img.loading = "lazy"; img.decoding = "async"; img.alt = "";
-      img.addEventListener("error", () => img.remove());
+      img.addEventListener("error", () => {
+        img.remove();
+        if (!body.children.length) b.remove();   // nothing left to pin to the line
+      });
       img.src = resolve(m.images[0], "image");
       body.appendChild(img);
     }
