@@ -8,6 +8,24 @@ not serve it and it is not reachable from the portfolio site.
 
 ---
 
+## Design decisions
+
+**Depth is built with CSS 3D transforms, not WebGL.** Real perspective, real Z-positioning, real
+parallax — but text and photographs stay natively sharp rather than being resampled into textures on
+planes, which matters for a page carried by serif type and old photographs. It also loads near-
+instantly, holds 60fps on a phone, adds no library, and works when the file is double-clicked.
+(Modern Three.js is ESM-only, and ES modules are blocked under `file://`, so a WebGL build would
+require inlining a ~600KB bundle.) Atmospheric WebGL — drifting dust, distance haze — can be layered
+behind the cards later without disturbing any of this.
+
+**The engine knows nothing about whose memorial it is.** Everything personal — name, dates, opening
+line, accent colour — lives in a `SITE` block next to `MEMORIES`. Nothing below those two blocks
+references a specific person. A different memorial is therefore a different data file against the
+same engine: copy the folder, replace `SITE`, `MEMORIES` and `media/`, and it is someone else's
+timeline. This costs nothing to maintain and keeps that door open.
+
+---
+
 ## Adding a memory
 
 Open `index.html` in any text editor. At the very top there is one block:
