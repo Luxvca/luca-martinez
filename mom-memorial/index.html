@@ -51,7 +51,21 @@ const SITE = {
   opening: "",
 
   // The word on the button that begins it.
-  enter: "Enter"
+  enter: "Enter",
+
+  // ── The threshold ────────────────────────────────────────
+  // What you move through before the first memory. The lines
+  // sit at different depths, so reading them is the walk in.
+  // Swap these for a quote whenever you have one.
+  threshold: {
+    image: "",          // optional photograph at the very front,
+                        // e.g. "images/mom-porch.jpg"
+    lines: [
+      "Scroll forward to move through her life.",
+      "The further you go, the later it gets."
+    ],
+    attribution: ""     // small line under the last one
+  }
 };
 
 
@@ -343,6 +357,45 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   width:300px; height:1px;
   background:linear-gradient(90deg,
     transparent, rgba(185,143,79,.5) 22%, rgba(185,143,79,.5) 78%, transparent);
+}
+
+/* The threshold — lines and an optional photograph standing at
+   different depths before the first memory. */
+.thresh{
+  position:absolute;
+  left:50%; top:50%;
+  width:min(640px,80vw);
+  margin-left:calc(min(640px,80vw) / -2);
+  text-align:center;
+  pointer-events:none;
+  visibility:hidden;
+  will-change:transform,opacity;
+}
+.thresh.line{
+  font-size:clamp(1.45rem,2.9vw,2.05rem);
+  font-weight:300;
+  line-height:1.5;
+  letter-spacing:.012em;
+  color:var(--ink);
+  text-wrap:balance;
+}
+.thresh.attrib{
+  font-family:var(--sans);
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.thresh.image{
+  width:min(540px,74vw);
+  margin-left:calc(min(540px,74vw) / -2);
+}
+.thresh-img{
+  width:100%; height:auto; display:block;
+  -webkit-mask-image:radial-gradient(ellipse 96% 96% at 50% 50%,
+    #000 44%, rgba(0,0,0,.55) 74%, transparent 97%);
+          mask-image:radial-gradient(ellipse 96% 96% at 50% 50%,
+    #000 44%, rgba(0,0,0,.55) 74%, transparent 97%);
 }
 
 .card{
@@ -771,13 +824,40 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 #sound:hover #vol,#sound:focus-within #vol{ width:74px; opacity:1; }
 
 #hint{
-  bottom:28px;
+  bottom:30px;
   left:50%;
   transform:translateX(-50%);
-  letter-spacing:.2em;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:11px;
   transition:opacity 1.4s var(--ease);
 }
 #hint.hide{ opacity:0; }
+#hint .label{ letter-spacing:.24em; }
+
+/* A mark that keeps travelling away from you — the same motion
+   the corridor makes when you scroll. */
+#hint-rail{
+  position:relative;
+  width:1px; height:40px;
+  background:linear-gradient(180deg,
+    rgba(185,143,79,0), rgba(185,143,79,.42));
+}
+#hint-rail i{
+  position:absolute;
+  left:-2px; top:0;
+  width:5px; height:5px;
+  border-radius:50%;
+  background:var(--sand);
+  animation:fall 2.9s cubic-bezier(.42,0,.48,1) infinite;
+}
+@keyframes fall{
+  0%  { transform:translateY(0) scale(1);  opacity:0; }
+  22% { opacity:1; }
+  78% { opacity:.5; }
+  100%{ transform:translateY(35px) scale(.55); opacity:0; }
+}
 
 /* ============================================================
    Narrow screens
@@ -845,7 +925,10 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
   <button id="sound-btn" aria-label="Mute"></button>
   <input id="vol" type="range" min="0" max="100" step="1" value="80" aria-label="Volume">
 </div>
-<div id="hint" class="ui label">Scroll to move</div>
+<div id="hint" class="ui">
+  <div id="hint-rail"><i></i></div>
+  <div class="label">Scroll</div>
+</div>
 
 <script>
 (() => {
@@ -1027,6 +1110,68 @@ const SPINE_STEP = 220, SPINE_END = -1600;
   }
 })();
 
+/* ── The threshold ──────────────────────────────────────────
+   Parts stand at fractional world positions *before* memory 0,
+   so the camera starts behind them and you walk through the
+   words on your way to the first memory.
+   ─────────────────────────────────────────────────────────── */
+const TH = SITE.threshold || {};
+const thLines = (TH.lines || []).filter(Boolean);
+const thParts = [];
+if (TH.image) thParts.push({ type: "image", value: TH.image });
+thLines.forEach((l) => thParts.push({ type: "line", value: l }));
+if (TH.attribution) thParts.push({ type: "attrib", value: TH.attribution });
+
+const TH_STEP = .34;   // depth between parts, in SPACING units
+const TH_LEAD = .46;   // gap between the last part and memory 0
+const TH_SPAN = thParts.length ? (thParts.length - 1) * TH_STEP : 0;
+const CAM_MIN = thParts.length ? -(TH_SPAN + TH_LEAD + .30) * SPACING : 0;
+
+// Start standing at the threshold, not at the first memory.
+camTarget = cam = CAM_MIN;
+
+(() => {
+  let li = 0;
+  thParts.forEach((p, k) => {
+    p.w = -(TH_SPAN + TH_LEAD) + k * TH_STEP;
+
+    // Lines stagger vertically so a nearer one never sits on top
+    // of the one behind it.
+    if (p.type === "line") {
+      p.y = (li - (thLines.length - 1) / 2) * 88;
+      li++;
+    } else if (p.type === "attrib") {
+      p.y = ((thLines.length - 1) / 2) * 88 + 74;
+    } else {
+      p.y = 0;
+    }
+
+    const n = el("div", "thresh " + p.type);
+    if (p.type === "image") {
+      const img = el("img", "thresh-img");
+      img.alt = ""; img.decoding = "async";
+      img.addEventListener("error", () => { p.gone = true; n.remove(); });
+      img.src = resolve(p.value, "image");
+      n.appendChild(img);
+    } else {
+      n.textContent = p.value;
+    }
+    p.el = n;
+    world.appendChild(n);
+  });
+})();
+
+/* Shared atmospheric falloff for anything standing in the corridor. */
+function depth(elm, z) {
+  const reach = clamp((z - FAR) / (Math.abs(FAR) * .85), 0, 1);
+  const far   = reach * reach;
+  const near  = z > 0 ? clamp(1 - z / NEAR, 0, 1) : 1;
+  elm.style.opacity = String(far * near);
+  const soft = (1 - far) * 4;
+  elm.style.filter = soft > .15 ? `blur(${soft.toFixed(2)}px)` : "none";
+  return { far, near };
+}
+
 const cards = items.map((m, idx) => {
   const b = el("button", "card");
   b.type = "button";
@@ -1113,27 +1258,31 @@ function frame() {
 
     // Atmospheric perspective: distance washes a memory out into
     // the eggshell and softens it, the way real air does.
-    // Squared falloff: a memory one step back is already half
-    // dissolved into the air, so only what's near you is legible.
-    const reach = clamp((z - FAR) / (Math.abs(FAR) * .85), 0, 1);
-    const far   = reach * reach;
-    const near  = z > 0 ? clamp(1 - z / NEAR, 0, 1) : 1;
-    b.style.opacity = String(far * near);
+    const f = depth(b, z);
     b.style.transform = `translate3d(${b.x}px,calc(-50% + ${b.y}px),${z}px)`;
-    b.style.pointerEvents = (near > .55 && far > .45) ? "auto" : "none";
-
-    const soft = (1 - far) * 4;
-    b.style.filter = soft > .15 ? `blur(${soft.toFixed(2)}px)` : "none";
+    b.style.pointerEvents = (f.near > .55 && f.far > .45) ? "auto" : "none";
 
     const d = Math.abs(z);
     if (d < nearestD) { nearestD = d; nearest = i; }
   }
 
+  // the threshold, standing in front of the first memory
+  for (const p of thParts) {
+    if (p.gone) continue;
+    const z = -p.w * SPACING + cam;
+    if (z > NEAR || z < FAR) { p.el.style.visibility = "hidden"; continue; }
+    p.el.style.visibility = "visible";
+    depth(p.el, z);
+    p.el.style.transform = `translate3d(0,calc(-50% + ${p.y}px),${z}px)`;
+  }
+
   // the floor slides underneath you as you move
   spineEl.style.transform = `translate3d(0,0,${cam % SPINE_STEP}px)`;
 
+  // No date while you're still in the threshold.
   const w = $("#where");
-  const label = items[nearest] ? (items[nearest].date || "") : "";
+  const label = (items[nearest] && nearestD < SPACING * .7)
+    ? (items[nearest].date || "") : "";
   if (w.textContent !== label) w.textContent = label;
 
   if (Math.abs(camTarget - cam) > .4 || Math.abs(pointerX - px) > .001) {
@@ -1146,7 +1295,7 @@ function kick() { if (!running) { running = true; requestAnimationFrame(frame); 
 
 const maxCam = () => Math.max(0, (N - 1) * SPACING);
 function move(d) {
-  camTarget = clamp(camTarget + d, 0, maxCam());
+  camTarget = clamp(camTarget + d, CAM_MIN, maxCam());
   kick();
   hideHint();
 }
@@ -1186,7 +1335,7 @@ addEventListener("keydown", (e) => {
   if (e.key === "ArrowDown" || e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); move(SPACING); }
   if (e.key === "ArrowUp"   || e.key === "ArrowLeft"  || e.key === "PageUp")   { e.preventDefault(); move(-SPACING); }
   if (e.key === " ")    { e.preventDefault(); move(SPACING); }
-  if (e.key === "Home") { camTarget = 0; kick(); }
+  if (e.key === "Home") { camTarget = CAM_MIN; kick(); }
   if (e.key === "End")  { camTarget = maxCam(); kick(); }
 });
 
@@ -1257,10 +1406,11 @@ function setView(v) {
   } else {
     kick();
   }
-  hideHint();
 }
-$("#v-depth").addEventListener("click", () => setView("depth"));
-$("#v-flat").addEventListener("click",  () => setView("flat"));
+// Entry calls setView too, so the prompt is only dismissed by a
+// deliberate toggle — never by arriving.
+$("#v-depth").addEventListener("click", () => { setView("depth"); hideHint(); });
+$("#v-flat").addEventListener("click",  () => { setView("flat");  hideHint(); });
 
 /* vertical wheel scrolls the timeline sideways */
 $("#flat").addEventListener("wheel", (e) => {

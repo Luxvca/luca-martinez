@@ -31,6 +31,29 @@ timeline.
 
 ---
 
+## The threshold
+
+`SITE.threshold` is what you move through before reaching the first memory. The lines stand at
+different depths, so reading them *is* the walk in — which teaches the scroll without instructing
+anyone.
+
+```js
+threshold: {
+  image: "images/mom-porch.jpg",   // optional, stands at the very front
+  lines: [
+    "Some things you keep.",
+    "Some things keep you."
+  ],
+  attribution: ""                   // small line under the last one
+}
+```
+
+The defaults are plain instructions. Replace them with a quote, or her words, whenever you have
+one. Set `lines: []` and leave `image` empty to skip the threshold entirely — the corridor then
+opens directly on the first memory.
+
+---
+
 ## Adding a memory
 
 Open `index.html` in any text editor. Near the top there is one block:
