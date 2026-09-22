@@ -70,15 +70,25 @@ export default async function WorkDetailPage({ params }) {
             </aside>
 
             <div className="overflow-hidden bg-black">
-              <div className="aspect-video">
-                <iframe
-                  src={getEmbedUrl(video.embedUrl)}
-                  title={video.title}
-                  className="h-full w-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              </div>
+              {video.embedUrl.includes("instagram.com") ? (
+                <div className="flex items-center justify-center p-4">
+                  <blockquote
+                    className="instagram-media"
+                    data-instgrm-permalink={video.embedUrl}
+                    data-instgrm-version="14"
+                  />
+                </div>
+              ) : (
+                <div className="aspect-video">
+                  <iframe
+                    src={getEmbedUrl(video.embedUrl)}
+                    title={video.title}
+                    className="h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              )}
             </div>
           </div>
 

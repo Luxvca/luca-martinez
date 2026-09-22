@@ -23,6 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${sans.variable} ${display.variable}`}>
+      <head>
+        <script async src="https://www.instagram.com/embed.js"></script>
+      </head>
       <body>{children}</body>
     </html>
   );

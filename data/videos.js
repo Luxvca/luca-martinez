@@ -182,7 +182,7 @@ const nickColemanOutTheZip = {
 const nikeGetLost = {
   slug: "nike-get-lost",
   title: "Nike | Get Lost",
-  thumbnail: "/images/Nike Spec Ad/Thumbnail.png",
+  thumbnail: "/images/Nike Spec Ad/THumbnail 2.png",
   category: "Commercial",
   description: "Spec ad.",
   embedUrl: "https://youtu.be/ASRjUjPy97U",
@@ -198,6 +198,15 @@ const nikeGetLost = {
     "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.54.50 PM.png",
     "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.55.11 PM.png"
   ]
+};
+
+const morocco = {
+  slug: "morocco",
+  title: "Morocco",
+  thumbnail: "/images/Morocco/Morocco.png",
+  category: "Selected Work",
+  embedUrl: "https://www.youtube.com/watch?v=jKtRK9Hyqy0",
+  stills: []
 };
 
 const dodgersGame = {
@@ -225,12 +234,27 @@ const daveMcmenaminInterview = {
   ]
 };
 
+const gatoradePaigeBueckers = {
+  slug: "gatorade-paige-bueckers",
+  title: "Gatorade | Paige Bueckers",
+  thumbnail: "/images/Paige-Bueckers/Paige-Bueckers-Made-Us-Do.jpg",
+  category: "Commercial",
+  description: "Gatorade x Paige Bueckers Shirley Temple flavor campaign. Production role included full production management and custom glass design & manufacturing.",
+  embedUrl: "https://www.instagram.com/p/Db6OyLPNCcl/",
+  year: "2026",
+  credits: ["Junior Producer at Wasserman"],
+  stills: [
+    "/images/Paige-Bueckers/Paige-Bueckers-Made-Us-Do.jpg",
+    "/images/Paige-Bueckers/Paige-Bueckers-Shes-back.jpg",
+    "/images/Paige-Bueckers/Paige-Bueckers-nike-collab-photo.jpg"
+  ]
+};
+
 export const videosBySection = {
   selectedWork: [
-    daveMcmenaminInterview,
     nikeGetLost,
+    morocco,
     dodgersGame,
-    palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
     amerikidRockberryJam,
     nickColemanOutTheZip,
@@ -239,9 +263,7 @@ export const videosBySection = {
   commercials: [
     nikeGetLost,
     dodgersGame,
-    palletIntroducingAtlas,
     alpineStarsBuiltForTheCity,
-    nbcStreetwearStory,
     {
       slug: "monochrome-run",
       title: "Monochrome Run",
@@ -266,7 +288,7 @@ export const videosBySection = {
     },
     amerikidDressCode,
     amerikidRockberryJam,
-    dittoAiChartered
+    gatoradePaigeBueckers
   ],
   social: [
     {
