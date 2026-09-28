@@ -160,8 +160,7 @@ a.poster-sub:hover {
 /* Deboss: glyphs stay transparent so the page's grain and gradient read straight through the
    letters — nothing is painted over the background. The relief is inverted from an emboss:
    the wall facing the 73deg light is in shadow, the far wall catches the light. */
-.project-title,
-.poster-name {
+.project-title {
   --emboss-depth: 1.8px;
   --emboss-blur: 1.3px;
   --emboss-highlight: 0.78;

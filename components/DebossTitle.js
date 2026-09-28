@@ -132,7 +132,8 @@ export default function DebossTitle({ word, className = '', ...settings }) {
             if (!program || disposed || gl.isContextLost() || !lastKey)
                 return;
             gl.useProgram(program);
-            gl.uniform1f(gl.getUniformLocation(program, 'highlightOpacity'), previewVisible ? .5 : 1);
+            const mobileHighlight = window.matchMedia('(max-width: 700px)').matches ? .62 : 1;
+            gl.uniform1f(gl.getUniformLocation(program, 'highlightOpacity'), previewVisible ? .5 : mobileHighlight);
             gl.drawArrays(gl.TRIANGLES, 0, 3);
         }
         function render() {
