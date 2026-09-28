@@ -64,6 +64,11 @@ export default async function WorkDetailPage({ params }) {
                         {video.subheadline}
                       </p>
                     ) : null}
+                    {video.serviceLine ? (
+                      <p className="mt-2 text-[13px] uppercase tracking-editorial text-muted md:text-sm">
+                        {video.serviceLine}
+                      </p>
+                    ) : null}
                   </>
                 ) : (
                   <>
@@ -176,15 +181,22 @@ export default async function WorkDetailPage({ params }) {
           {stills.length ? (
             <div className="mx-auto mt-6 grid max-w-2xl gap-4 md:mt-8 md:gap-5">
               {stills.map((still, index) => (
-                <div key={`${still}-${index}`} className="overflow-hidden bg-[#101010]">
-                  <Image
-                    src={still}
-                    alt={`${video.title} still ${index + 1}`}
-                    width={1200}
-                    height={900}
-                    sizes="(max-width: 768px) 100vw, 672px"
-                    className="h-auto w-full"
-                  />
+                <div key={`${still}-${index}`}>
+                  <div className="overflow-hidden bg-[#101010]">
+                    <Image
+                      src={still}
+                      alt={`${video.title} still ${index + 1}`}
+                      width={1200}
+                      height={900}
+                      sizes="(max-width: 768px) 100vw, 672px"
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  {index === 0 && video.firstStillCaption ? (
+                    <p className="mt-3 text-sm leading-6 text-muted">
+                      {video.firstStillCaption}
+                    </p>
+                  ) : null}
                 </div>
               ))}
             </div>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import DebossTitle from "@/components/DebossTitle";
 import { useCallback, useEffect, useRef } from "react";
 
 const EDGE = 16;
@@ -88,7 +89,7 @@ function ProjectName({ project }) {
           style={{ objectPosition: project.previewPosition }}
         />
       </span>
-      <span className="project-title">{project.title}</span>
+      <DebossTitle word={project.title} className="project-title" />
     </Link>
   );
 }

@@ -243,6 +243,7 @@ const gatoradePaigeBueckers = {
   category: "Commercial",
   headline: "Gatorade Shirley Temple",
   subheadline: "Paige Bueckers | Nike Capsule Collab",
+  serviceLine: "Still Photography & Social Media Content",
   pullQuote: "Our creative team built this campaign around Paige's 2024 tweet, \"I know a Shirley Temple hate to see me coming,\" which pulled 2.1 million views.",
   tweetUrl: "https://x.com/paigebueckers1/status/1815779692659569017?lang=en",
   description: "Gatorade turned Paige Bueckers' favorite drink into a limited-edition flavor and teamed up with Nike on a capsule collection to go with it. On the bottle it reads: \"Paige's Favorite Flavor\"",
@@ -256,7 +257,8 @@ const gatoradePaigeBueckers = {
     "/images/Gatorade-Paige-Bueckers/Gatorade_Nike_Shirt_Drink.png",
     "/images/Gatorade-Paige-Bueckers/Nike_Shirt.png",
     "/images/Gatorade-Paige-Bueckers/Gatorade_Solo.png"
-  ]
+  ],
+  firstStillCaption: "The Gatorade glassware was a real physical glass that I designed and had etched at a custom glass engraving spot in Portland."
 };
 
 const gatoradeKnicks = {

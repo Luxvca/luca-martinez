@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import DebossTitle from "@/components/DebossTitle";
 import LightLeak from "@/components/LightLeak";
 import ProjectList from "@/components/ProjectList";
 import { navigationLinks } from "@/data/navigation";
@@ -17,7 +18,7 @@ export default function Hero() {
 
       <header className="poster-header section-grid flex items-start justify-between gap-6 py-5 md:py-7">
         <div>
-          <p className="poster-name">Luca Martinez</p>
+          <p className="poster-name"><DebossTitle word="Luca Martinez" className="deboss-brand" /></p>
           <p className="poster-sub mt-2 text-[11px] uppercase tracking-editorial md:text-xs">
             Director-Producer
           </p>
