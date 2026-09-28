@@ -35,3 +35,201 @@ a {
 .section-rule {
   @apply border-t-0;
 }
+
+.instagram-media,
+.instagram-media-rendered,
+.twitter-tweet,
+.twitter-tweet-rendered {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Landing page: frosted-glass poster theme. The preview layer must stay a sibling of
+   the glass panel — as a child it would sit above the backdrop-filter and never blur. */
+.poster {
+  --poster-ink: #3c3c3c;
+  --poster-ink-soft: #6f6f6f;
+  position: relative;
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  flex-direction: column;
+  overflow: hidden;
+  background: transparent;
+  color: var(--poster-ink);
+}
+
+/* The landing page is a fixed single screen: no scroll, no rubber-band bounce. */
+html:has(.poster),
+body:has(.poster) {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.leak-canvas,
+.leak-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.leak-fallback {
+  background:
+    radial-gradient(64% 48% at 88% 38%, #212a39 0%, #445368 26%, #8b9cb2 58%, #ffffff 100%),
+    radial-gradient(72% 52% at 45% 88%, rgba(68, 83, 104, 0.3) 0%, rgba(255, 255, 255, 0) 70%),
+    #ffffff;
+}
+
+.leak-fallback::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.poster-header {
+  position: relative;
+  z-index: 5;
+}
+
+.poster-name {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+  /* Larger, heavier type carries a slightly deeper recess at the same visual weight. */
+  --emboss-depth: 2.2px;
+}
+
+.poster-sub {
+  color: var(--poster-ink-soft);
+  transition: color 0.3s ease;
+}
+
+a.poster-sub:hover {
+  color: var(--poster-ink);
+}
+
+/* No transform here: a transformed ancestor would become the containing block for the
+   fixed-position previews and throw off their cursor alignment. */
+.poster-stage {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  padding-top: clamp(32px, 8vh, 96px);
+  padding-bottom: calc(clamp(32px, 8vh, 96px) + 14vh);
+}
+
+.project-list {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(2px, 0.5vh, 6px);
+}
+
+.project-link {
+  position: relative;
+  padding: 2px 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(20px, 2.1vw, 30px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.project-title {
+  position: relative;
+  z-index: 2;
+}
+
+/* Deboss: glyphs stay transparent so the page's grain and gradient read straight through the
+   letters — nothing is painted over the background. The relief is inverted from an emboss:
+   the wall facing the 73deg light is in shadow, the far wall catches the light. */
+.project-title,
+.poster-name {
+  --emboss-depth: 1.8px;
+  --emboss-blur: 1.3px;
+  --emboss-highlight: 0.78;
+  --emboss-shadow: 0.3;
+  color: transparent;
+  /* Stepped at half depth before full depth: the wall ramps in over two stops instead of
+     arriving at once, which softens the falloff without just blurring the edge. */
+  text-shadow:
+    calc(var(--emboss-depth) * 0.16) calc(var(--emboss-depth) * -0.53) calc(var(--emboss-blur) * 0.7)
+      rgba(0, 0, 0, calc(var(--emboss-shadow) * 0.65)),
+    calc(var(--emboss-depth) * 0.29) calc(var(--emboss-depth) * -0.96) var(--emboss-blur)
+      rgba(0, 0, 0, var(--emboss-shadow)),
+    calc(var(--emboss-depth) * -0.16) calc(var(--emboss-depth) * 0.53) calc(var(--emboss-blur) * 0.7)
+      rgba(255, 255, 255, calc(var(--emboss-highlight) * 0.65)),
+    calc(var(--emboss-depth) * -0.29) calc(var(--emboss-depth) * 0.96) var(--emboss-blur)
+      rgba(255, 255, 255, var(--emboss-highlight)),
+    calc(var(--emboss-depth) * 0.6) calc(var(--emboss-depth) * -2) calc(var(--emboss-blur) * 2.8)
+      rgba(0, 0, 0, calc(var(--emboss-shadow) * 0.4));
+}
+
+.preview {
+  --feather: transparent 0%, #0006 5%, #000c 12%, #000 18%, #000 82%, #000c 88%, #0006 95%,
+    transparent 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: clamp(588px, 81vw, 1260px);
+  aspect-ratio: 1.9 / 0.7;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  filter: saturate(0.33);
+  transition: opacity 0.2s ease;
+  mask-image: linear-gradient(to right, var(--feather)), linear-gradient(to bottom, var(--feather));
+  mask-composite: intersect;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(to right, var(--feather)),
+    linear-gradient(to bottom, var(--feather));
+  -webkit-mask-composite: source-in;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.preview[data-visible="true"] {
+  visibility: visible;
+  opacity: 1;
+}
+
+.preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body:has(dialog[open]) .preview {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media (hover: none) {
+  .preview {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview {
+    transition: none;
+  }
+}

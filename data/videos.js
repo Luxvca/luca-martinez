@@ -101,6 +101,7 @@ const amerikidRockberryJam = {
   slug: "amerikid-rockberry-jam",
   title: "Amerikid | Rockberry Jam",
   thumbnail: "/images/Rockberry Jam images/Thumbnail 2.png",
+  previewPosition: "center 26%",
   category: "Commercial",
   description: "Commercial work for Amerikid.",
   embedUrl: "https://youtu.be/ivIYyMOmzUg",
@@ -236,24 +237,51 @@ const daveMcmenaminInterview = {
 
 const gatoradePaigeBueckers = {
   slug: "gatorade-paige-bueckers",
-  title: "Gatorade | Paige Bueckers",
-  thumbnail: "/images/Paige-Bueckers/Paige-Bueckers-Made-Us-Do.jpg",
+  title: "GATORADE | NIKE | PAIGE BUECKERS",
+  thumbnail: "/images/Gatorade-Paige-Bueckers/Paige-Bueckers-Made-Us-Do.jpg",
+  previewPosition: "center 86%",
   category: "Commercial",
-  description: "Gatorade x Paige Bueckers Shirley Temple flavor campaign. Production role included full production management and custom glass design & manufacturing.",
+  headline: "Gatorade Shirley Temple",
+  subheadline: "Paige Bueckers | Nike Capsule Collab",
+  pullQuote: "Our creative team built this campaign around Paige's 2024 tweet, \"I know a Shirley Temple hate to see me coming,\" which pulled 2.1 million views.",
+  tweetUrl: "https://x.com/paigebueckers1/status/1815779692659569017?lang=en",
+  description: "Gatorade turned Paige Bueckers' favorite drink into a limited-edition flavor and teamed up with Nike on a capsule collection to go with it. On the bottle it reads: \"Paige's Favorite Flavor\"",
+  heroImage: "/images/Gatorade-Paige-Bueckers/Paige-Bueckers-Shes-back.jpg",
   embedUrl: "https://www.instagram.com/p/Db6OyLPNCcl/",
-  year: "2026",
-  credits: ["Junior Producer at Wasserman"],
+  agency: "Wasserman",
+  role: "Junior Producer",
   stills: [
-    "/images/Paige-Bueckers/Paige-Bueckers-Made-Us-Do.jpg",
-    "/images/Paige-Bueckers/Paige-Bueckers-Shes-back.jpg",
-    "/images/Paige-Bueckers/Paige-Bueckers-nike-collab-photo.jpg"
+    "/images/Gatorade-Paige-Bueckers/Paige-Bueckers-Made-Us-Do.jpg",
+    "/images/Gatorade-Paige-Bueckers/Paige-Bueckers-nike-collab-photo.jpg",
+    "/images/Gatorade-Paige-Bueckers/Gatorade_Nike_Shirt_Drink.png",
+    "/images/Gatorade-Paige-Bueckers/Nike_Shirt.png",
+    "/images/Gatorade-Paige-Bueckers/Gatorade_Solo.png"
   ]
+};
+
+const gatoradeKnicks = {
+  slug: "gatorade-knicks",
+  title: "GATORADE | NY KNICKS",
+  headline: "GATORADE | NY KNICKS",
+  subheadline: "Karl-Anthony Towns | Billboard Campaign",
+  thumbnail: "/images/Gatorade-Knicks/Knicks billboard.PNG",
+  previewPosition: "center 38%",
+  category: "Commercial",
+  agency: "Wasserman",
+  role: "Junior Producer",
+  description: "Placeholder copy: Gatorade turned Paige Bueckers' favorite drink into a limited-edition flavor and teamed up with Nike on a capsule collection to go with it.",
+  heroImage: "/images/Gatorade-Knicks/Knicks billboard.PNG",
+  embedUrl: "https://www.instagram.com/p/DZzpHkFkW5s/?img_index=1",
+  secondImage: "/images/Gatorade-Knicks/Knicks billboard 2.png",
+  pullQuote: "Talk of the TOWNS",
+  stills: ["/images/Gatorade-Knicks/T.jpg"]
 };
 
 export const videosBySection = {
   selectedWork: [
     nikeGetLost,
     morocco,
+    gatoradePaigeBueckers,
     dodgersGame,
     alpineStarsBuiltForTheCity,
     amerikidRockberryJam,
@@ -262,6 +290,8 @@ export const videosBySection = {
   ],
   commercials: [
     nikeGetLost,
+    gatoradePaigeBueckers,
+    gatoradeKnicks,
     dodgersGame,
     alpineStarsBuiltForTheCity,
     {
@@ -287,8 +317,7 @@ export const videosBySection = {
       stills: ["/images/placeholder-frame.svg"]
     },
     amerikidDressCode,
-    amerikidRockberryJam,
-    gatoradePaigeBueckers
+    amerikidRockberryJam
   ],
   social: [
     {

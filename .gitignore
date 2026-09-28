@@ -10,3 +10,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+
+# Internal client decks — not for the public repo
+public/images/**/*.pdf
