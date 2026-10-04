@@ -5,6 +5,7 @@ import InstagramEmbed from "@/components/InstagramEmbed";
 import MlbPostseason from "@/components/MlbPostseason";
 import PaigeBueckers from "@/components/PaigeBueckers";
 import GatoradeKnicks from "@/components/GatoradeKnicks";
+import DirectorProject from "@/components/DirectorProject";
 import LightLeak from "@/components/LightLeak";
 import PosterHeader from "@/components/PosterHeader";
 import TweetEmbed from "@/components/TweetEmbed";
@@ -48,6 +49,9 @@ export default async function WorkDetailPage({ params }) {
   }
 
   const stills = (video.stills || []).filter((still) => !still.includes("placeholder-frame.svg"));
+  if (video.slug !== "nike-get-lost" && !video.archived) {
+    return <DirectorProject project={video} />;
+  }
   const isNikeSpec = video.slug === "nike-get-lost";
   const featuredStill = isNikeSpec ? stills.at(-1) : null;
   const galleryStills = featuredStill ? stills.slice(0, -1) : stills;

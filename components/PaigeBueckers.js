@@ -59,7 +59,7 @@ export default function PaigeBueckers({ project }) {
         <InlineImage src={project.stills[3]} alt={`${project.title} still 4`} />
       </section>
 
-      <p className="paige-role-writeup paige-inset"><strong>My role:</strong> Assistant Editor / Junior Producer. I supported the production and helped shape the campaign’s social deliverables from concept through launch. The Gatorade glassware was a real physical glass that I had etched at a custom glass engraving spot in Portland. I also managed the customization process from design through finished piece.</p>
+      <p className="paige-role-writeup paige-inset"><strong>My role:</strong> Junior Producer. I supported the production and helped shape the campaign’s social deliverables from concept through launch. The Gatorade glassware was a real physical glass that I had etched at a custom glass engraving spot in Portland. I also managed the customization process from design through finished piece.</p>
 
       <section className="paige-secondary-embed paige-inset" aria-label="Additional campaign social film">
         <InstagramEmbed url="https://www.instagram.com/p/DbqoFC7NNbT/" title={`${project.headline} additional social film`} />

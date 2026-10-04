@@ -298,7 +298,7 @@ const gatoradeKnicks = {
   category: "Commercial",
   agency: "Wasserman",
   role: "Junior Producer",
-  description: "53 years is tough. Karl-Anthony Towns and the New York Knicks are tougher. Congratulations to the champions.",
+  description: "53 years is tough. Karl-Anthony Towns and the New York Knicks are tougher. This massive Times Square billboard hammers home the end of this half-century championship drought. The Title Thirst Quenched.",
   heroImage: "/images/Gatorade-Knicks/Knicks billboard.PNG",
   embedUrl: "https://www.instagram.com/p/DZzpHkFkW5s/?img_index=1",
   stills: [

@@ -45,7 +45,7 @@ export default function MlbPostseason({ project }) {
         </div>
       </header>
 
-      <CampaignImage src={project.stills[1]} alt="The October journey: Wildcard urgency, Divisional unrivaled experience, Championship high stakes, and World Series no rules." />
+      <CampaignImage src={project.stills[0]} alt="I love October — the Wildcard campaign title on a blue background." />
 
       <section className="mlb-film mlb-inset" aria-label="MLB Postseason campaign film">
         <InstagramEmbed url={project.embedUrl} title="Watch No Time Like October on Instagram" />
@@ -59,7 +59,7 @@ export default function MlbPostseason({ project }) {
         </div>
       </section>
 
-      <CampaignImage src={project.stills[0]} alt="I love October — the Wildcard campaign title on a blue background." />
+      <CampaignImage src={project.stills[1]} alt="The October journey: Wildcard urgency, Divisional unrivaled experience, Championship high stakes, and World Series no rules." />
 
       <section className="mlb-music mlb-inset" aria-labelledby="mlb-music-heading">
         <div>
