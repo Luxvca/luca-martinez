@@ -40,6 +40,7 @@ uniform float uTime;
 uniform float uGrain;
 uniform float uGrainSeed;
 uniform float uBase;
+uniform float uMobile;
 uniform vec4 uLights[6];
 
 float hash(vec3 p) {
@@ -96,7 +97,7 @@ float leak(vec2 uv, vec4 light, float aspect, float warp, float stretch) {
 
 void main() {
   vec2 uv = gl_FragCoord.xy / uResolution;
-  float aspect = uResolution.x / uResolution.y;
+  float aspect = max(uResolution.x / uResolution.y, uMobile);
 
   float warp = fbm(vec3(uv * 1.7, uTime * 0.35)) - 0.5;
   float stretch = 0.72 + 0.5 * fbm(vec3(uv * 0.9, uTime * 0.25));
@@ -107,6 +108,7 @@ void main() {
     v += leak(uv, uLights[i], aspect, warp, stretch);
   }
 
+  v *= mix(1.0, 0.62, uMobile);
   v = pow(clamp(v, 0.0, 1.0), 1.12);
 
   // Hold the top strip back so the header and nav keep contrast against the leak.
@@ -189,6 +191,7 @@ export default function LightLeak() {
       grain: gl.getUniformLocation(program, "uGrain"),
       grainSeed: gl.getUniformLocation(program, "uGrainSeed"),
       base: gl.getUniformLocation(program, "uBase"),
+      mobile: gl.getUniformLocation(program, "uMobile"),
       lights: gl.getUniformLocation(program, "uLights[0]")
     };
 
@@ -225,6 +228,7 @@ export default function LightLeak() {
       canvas.height = Math.floor(window.innerHeight * ratio);
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
+      gl.uniform1f(uniforms.mobile, window.innerWidth <= 767 ? 1 : 0);
     };
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");

@@ -185,19 +185,27 @@ const nikeGetLost = {
   title: "Nike | Get Lost",
   thumbnail: "/images/Nike Spec Ad/THumbnail 2.png",
   category: "Commercial",
-  description: "Spec ad.",
+  description: "From breaking records at Cal to chasing an Olympic career, Jeremiah Bolias finds progress in the quiet miles.\n\nGet Lost captures the solitude of that pursuit—and the surreal moment when a single leap carries him beyond the familiar, into what comes next.",
   embedUrl: "https://youtu.be/ASRjUjPy97U",
   year: "2026",
-  credits: ["Directed by Luca Martinez"],
+  credits: ["Directed by Luca Martinez & Alec Lam"],
+  productionCredits: [
+    { role: "Client", name: "Nike (Spec Ad)" },
+    { role: "Production Company", name: "Special Projects Group" },
+    { role: "Creative Director", name: "Luca Martinez" },
+    { role: "Director", name: "Luca Martinez & Alec Lam" },
+    { role: "Art Director", name: "Noam Rignault" },
+    { role: "Producer", name: "Holden Sisco" }
+  ],
   stills: [
-    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.53.00 PM.png",
-    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.53.16 PM.png",
-    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.53.35 PM.png",
-    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.54.07 PM.png",
-    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.54.21 PM.png",
-    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.54.41 PM.png",
-    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.54.50 PM.png",
-    "/images/Nike Spec Ad/Screenshot 2026-05-18 at 7.55.11 PM.png"
+    "/images/Nike Spec Ad/still-01 copy.webp",
+    "/images/Nike Spec Ad/still-02 copy.webp",
+    "/images/Nike Spec Ad/still-03 copy.webp",
+    "/images/Nike Spec Ad/still-04 copy.webp",
+    "/images/Nike Spec Ad/still-05 copy.webp",
+    "/images/Nike Spec Ad/still-06 copy.webp",
+    "/images/Nike Spec Ad/still-07 copy.webp",
+    "/images/Nike Spec Ad/still-08 copy.webp"
   ]
 };
 
@@ -213,12 +221,33 @@ const morocco = {
 const dodgersGame = {
   slug: "dodgers-game",
   title: "Dodgers Game",
+  archived: true,
   thumbnail: "/images/commercials/dodgers-game.jpg",
   category: "Commercial",
   description: "Dodgers gameday spot.",
   embedUrl: "https://youtu.be/4Og9phMz9ew",
   stills: ["/images/commercials/dodgers-game.jpg"]
 };
+
+const mlbPostseason = {
+  slug: "mlb-postseason",
+  title: "MLB Postseason",
+  pageTitle: "No Time Like October",
+  thumbnail: "/images/MLB Postseason/Luca's MLB POSTSEASON - WIP CREATIVE FOR EDITORS.png",
+  category: "Commercial",
+  description: "Every postseason campaign talks about legacy. Every postseason campaign talks about stakes. But what makes October different is that time stops behaving normally.",
+  embedUrl: "https://www.instagram.com/p/Dd1dpfsTDAM/",
+  stills: [
+    "/images/MLB Postseason/I love october.png",
+    "/images/MLB Postseason/October journey 2.png",
+    "/images/MLB Postseason/Wilcard.png",
+    "/images/MLB Postseason/Divisional Series.png",
+    "/images/MLB Postseason/Championship series 2.png",
+    "/images/MLB Postseason/World Series.png"
+  ]
+};
+
+export const archivedVideos = [dodgersGame];
 
 const daveMcmenaminInterview = {
   slug: "dave-mcmenamin-interview",
@@ -241,7 +270,7 @@ const gatoradePaigeBueckers = {
   thumbnail: "/images/Gatorade-Paige-Bueckers/Paige-Bueckers-Made-Us-Do.jpg",
   previewPosition: "center 86%",
   category: "Commercial",
-  headline: "Gatorade Shirley Temple",
+  headline: "Shirley Temple Gatorade",
   subheadline: "Paige Bueckers | Nike Capsule Collab",
   serviceLine: "Still Photography & Social Media Content",
   pullQuote: "Our creative team built this campaign around Paige's 2024 tweet, \"I know a Shirley Temple hate to see me coming,\" which pulled 2.1 million views.",
@@ -258,25 +287,29 @@ const gatoradePaigeBueckers = {
     "/images/Gatorade-Paige-Bueckers/Nike_Shirt.png",
     "/images/Gatorade-Paige-Bueckers/Gatorade_Solo.png"
   ],
-  firstStillCaption: "The Gatorade glassware was a real physical glass that I designed and had etched at a custom glass engraving spot in Portland."
 };
 
 const gatoradeKnicks = {
   slug: "gatorade-knicks",
-  title: "GATORADE | NY KNICKS",
-  headline: "GATORADE | NY KNICKS",
-  subheadline: "Karl-Anthony Towns | Billboard Campaign",
+  title: "GATORADE | NEW YORK KNICKS",
+  headline: "IS IT IN YOU?",
   thumbnail: "/images/Gatorade-Knicks/Knicks billboard.PNG",
   previewPosition: "center 38%",
   category: "Commercial",
   agency: "Wasserman",
   role: "Junior Producer",
-  description: "Placeholder copy: Gatorade turned Paige Bueckers' favorite drink into a limited-edition flavor and teamed up with Nike on a capsule collection to go with it.",
+  description: "53 years is tough. Karl-Anthony Towns and the New York Knicks are tougher. Congratulations to the champions.",
   heroImage: "/images/Gatorade-Knicks/Knicks billboard.PNG",
   embedUrl: "https://www.instagram.com/p/DZzpHkFkW5s/?img_index=1",
-  secondImage: "/images/Gatorade-Knicks/Knicks billboard 2.png",
-  pullQuote: "Talk of the TOWNS",
-  stills: ["/images/Gatorade-Knicks/T.jpg"]
+  stills: [
+    "/images/Gatorade-Knicks/Knicks billboard 2.png",
+    "/images/Gatorade-Knicks/T.jpg",
+    "/images/Gatorade-Knicks/Artboard 11 (1).JPEG",
+    "/images/Gatorade-Knicks/Artboard 9.JPEG",
+    "/images/Gatorade-Knicks/Artboard 10.JPEG",
+    "/images/Gatorade-Knicks/Artboard 11.JPEG",
+    "/images/Gatorade-Knicks/Artboard 8.JPEG"
+  ]
 };
 
 export const videosBySection = {
@@ -284,7 +317,7 @@ export const videosBySection = {
     nikeGetLost,
     morocco,
     gatoradePaigeBueckers,
-    dodgersGame,
+    mlbPostseason,
     alpineStarsBuiltForTheCity,
     amerikidRockberryJam,
     nickColemanOutTheZip,
@@ -294,7 +327,7 @@ export const videosBySection = {
     nikeGetLost,
     gatoradePaigeBueckers,
     gatoradeKnicks,
-    dodgersGame,
+    mlbPostseason,
     alpineStarsBuiltForTheCity,
     {
       slug: "monochrome-run",
@@ -443,7 +476,7 @@ export function getEmbedUrl(url) {
 }
 
 export const allVideos = Array.from(
-  new Map(Object.values(videosBySection).flat().map((video) => [video.slug, video])).values()
+  new Map([...Object.values(videosBySection).flat(), ...archivedVideos].map((video) => [video.slug, video])).values()
 );
 
 export function getVideoBySlug(slug) {

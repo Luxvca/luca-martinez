@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 
-export default function Contact({ compact = false }) {
+export default function Contact({ compact = false, themed = false }) {
   return (
     <motion.section
       id={compact ? undefined : "contact"}
-      className={compact ? "" : "section-rule"}
-      initial={{ opacity: 0, y: 32 }}
+      className={themed ? "about-details" : compact ? "" : "section-rule"}
+      initial={themed ? false : { opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}

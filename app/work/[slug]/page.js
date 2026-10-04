@@ -2,7 +2,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import InstagramEmbed from "@/components/InstagramEmbed";
-import PageHeader from "@/components/PageHeader";
+import MlbPostseason from "@/components/MlbPostseason";
+import PaigeBueckers from "@/components/PaigeBueckers";
+import GatoradeKnicks from "@/components/GatoradeKnicks";
+import LightLeak from "@/components/LightLeak";
+import PosterHeader from "@/components/PosterHeader";
 import TweetEmbed from "@/components/TweetEmbed";
 import { allVideos, getEmbedUrl, getVideoBySlug } from "@/data/videos";
 
@@ -21,7 +25,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: `${video.title} | Luca Martinez`
+    title: `${video.pageTitle || video.title} | Luca Martinez`
   };
 }
 
@@ -33,19 +37,50 @@ export default async function WorkDetailPage({ params }) {
     notFound();
   }
 
+  if (video.slug === "mlb-postseason") {
+    return <MlbPostseason project={video} />;
+  }
+  if (video.slug === "gatorade-paige-bueckers") {
+    return <PaigeBueckers project={video} />;
+  }
+  if (video.slug === "gatorade-knicks") {
+    return <GatoradeKnicks project={video} />;
+  }
+
   const stills = (video.stills || []).filter((still) => !still.includes("placeholder-frame.svg"));
+  const isNikeSpec = video.slug === "nike-get-lost";
+  const featuredStill = isNikeSpec ? stills.at(-1) : null;
+  const galleryStills = featuredStill ? stills.slice(0, -1) : stills;
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <PageHeader currentPath={`/${video.category.toLowerCase().replace(/\s+/g, "-")}`} />
+    <main className={`poster project-page${isNikeSpec ? " nike-spec-page" : ""}`}>
+      {!isNikeSpec && <LightLeak />}
+      <PosterHeader homeButton />
       <section className="section-rule">
         <div className="section-grid pb-10 pt-3 md:pb-12 md:pt-4">
-          <div className="grid gap-8">
-            <aside
+          <div className={isNikeSpec ? "nike-spec-intro" : "grid gap-8"}>
+            {isNikeSpec ? (
+              <>
+                <div className="nike-spec-title">
+                  <p className="nike-spec-label">Nike Spec Ad · {video.year}</p>
+                  <h1>Get Lost</h1>
+                  <span className="nike-spec-logo" role="img" aria-label="Nike" />
+                  <div className="nike-spec-meta">
+                    <p>Director: Luca Martinez &amp; Alec Lam</p>
+                    <p>Production Company: Special Projects Group</p>
+                  </div>
+                </div>
+                <aside className="project-copy nike-spec-details">
+                  <div className="nike-spec-writeup">
+                    {video.description.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  </div>
+                </aside>
+              </>
+            ) : <aside
               className={
                 video.headline
-                  ? "grid gap-6"
-                  : "grid gap-6 md:grid-cols-[minmax(0,280px)_minmax(0,1fr)] md:gap-12"
+                  ? "project-copy grid gap-6"
+                  : "project-copy grid gap-6 md:grid-cols-[minmax(0,280px)_minmax(0,1fr)] md:gap-12"
               }
             >
               <div className={video.headline ? "text-center" : undefined}>
@@ -118,9 +153,21 @@ export default async function WorkDetailPage({ params }) {
                   <p key={credit}>{credit}</p>
                 ))}
               </div>
-            </aside>
+            </aside>}
 
-            <div className="flex flex-col gap-4 md:gap-5">
+            <div className={`flex flex-col gap-4 md:gap-5${isNikeSpec ? " nike-spec-film" : ""}`}>
+              {featuredStill ? (
+                <figure className="nike-spec-fullbleed">
+                  <Image
+                    src={featuredStill}
+                    alt={`${video.title} still ${stills.length}`}
+                    width={2560}
+                    height={1350}
+                    sizes="100vw"
+                    className="block h-auto w-full"
+                  />
+                </figure>
+              ) : null}
               {video.heroImage && video.embedUrl.includes("instagram.com") ? (
                 <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-stretch sm:justify-center sm:gap-5">
                   <div className="flex w-full justify-center sm:w-auto">
@@ -169,7 +216,7 @@ export default async function WorkDetailPage({ params }) {
               ) : null}
 
               {video.pullQuote ? (
-                <p className="mx-auto mt-6 max-w-3xl text-center text-xl font-semibold leading-8 text-foreground md:mt-10 md:text-2xl md:leading-10">
+                <p className="project-copy mx-auto mt-6 max-w-3xl text-center text-xl font-semibold leading-8 text-foreground md:mt-10 md:text-2xl md:leading-10">
                   {video.pullQuote}
                 </p>
               ) : null}
@@ -178,28 +225,47 @@ export default async function WorkDetailPage({ params }) {
             </div>
           </div>
 
-          {stills.length ? (
-            <div className="mx-auto mt-6 grid max-w-2xl gap-4 md:mt-8 md:gap-5">
-              {stills.map((still, index) => (
-                <div key={`${still}-${index}`}>
+          {galleryStills.length ? (
+            <div className={isNikeSpec ? "nike-spec-gallery" : "mx-auto mt-6 grid max-w-2xl gap-4 md:mt-8 md:gap-5"}>
+              {galleryStills.map((still, index) => (
+                <div key={`${still}-${index}`} className={isNikeSpec ? "nike-spec-fullbleed" : undefined}>
                   <div className="overflow-hidden bg-[#101010]">
                     <Image
                       src={still}
                       alt={`${video.title} still ${index + 1}`}
                       width={1200}
                       height={900}
-                      sizes="(max-width: 768px) 100vw, 672px"
+                      sizes={isNikeSpec ? "100vw" : "(max-width: 768px) 100vw, 672px"}
+                      unoptimized={isNikeSpec}
                       className="h-auto w-full"
                     />
                   </div>
                   {index === 0 && video.firstStillCaption ? (
-                    <p className="mt-3 text-sm leading-6 text-muted">
+                    <p className="project-copy mt-3 text-sm leading-6 text-muted">
                       {video.firstStillCaption}
                     </p>
+                  ) : null}
+                  {index === 2 && video.socialEmbedUrl ? (
+                    <div className="nike-spec-social">
+                      <InstagramEmbed url={video.socialEmbedUrl} title={`${video.title} — Instagram film`} />
+                    </div>
                   ) : null}
                 </div>
               ))}
             </div>
+          ) : null}
+          {video.productionCredits?.length ? (
+            <section className="project-copy nike-spec-credits" aria-labelledby="production-credits">
+              <h2 id="production-credits">Credits</h2>
+              <dl>
+                {video.productionCredits.map(({ role, name }) => (
+                  <div key={`${role}-${name}`}>
+                    <dt>{role}:</dt>
+                    <dd>{name}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
           ) : null}
         </div>
       </section>

@@ -45,7 +45,9 @@ void main() {
   vec3 recessedBlue = vec3(.035, .105, .16);
   vec3 overlay = mix(recessedBlue, vec3(1.), litWall);
   float opacity = mix(max(dark, blueFill), bright * (1. - occlusion), litWall);
-  gl_FragColor = vec4(overlay, opacity * smoothstep(0., .1, depth));
+  float alpha = opacity * smoothstep(0., .1, depth);
+  // Premultiplied output leaves no RGB in empty pixels for mobile compositors.
+  gl_FragColor = vec4(overlay * alpha, alpha);
 }`;
 export default function DebossTitle({ word, className = '', ...settings }) {
     const hostRef = useRef(null);
@@ -60,7 +62,7 @@ export default function DebossTitle({ word, className = '', ...settings }) {
         canvas.className = 'deboss-title-canvas';
         canvas.setAttribute('aria-hidden', 'true');
         host.appendChild(canvas);
-        const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false, antialias: false, depth: false, stencil: false });
+        const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false, depth: false, stencil: false });
         if (!gl) {
             canvas.remove();
             return;
@@ -134,6 +136,8 @@ export default function DebossTitle({ word, className = '', ...settings }) {
             gl.useProgram(program);
             const mobileHighlight = window.matchMedia('(max-width: 700px)').matches ? .62 : 1;
             gl.uniform1f(gl.getUniformLocation(program, 'highlightOpacity'), previewVisible ? .5 : mobileHighlight);
+            gl.clearColor(0, 0, 0, 0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
             gl.drawArrays(gl.TRIANGLES, 0, 3);
         }
         function render() {

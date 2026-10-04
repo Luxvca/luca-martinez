@@ -1,19 +1,23 @@
 import Contact from "@/components/Contact";
-import PageLayout from "@/components/PageLayout";
+import DebossTitle from "@/components/DebossTitle";
+import LightLeak from "@/components/LightLeak";
+import PosterHeader from "@/components/PosterHeader";
 
 export const metadata = {
-  title: "Contact | Luca Martinez"
+  title: "About | Luca Martinez"
 };
 
 export default function ContactPage() {
   return (
-    <PageLayout
-      currentPath="/contact"
-      eyebrow="Contact"
-      title="Contact"
-      description="Direct contact information and social links for production, development, and collaboration."
-    >
-      <Contact compact />
-    </PageLayout>
+    <main className="poster about-page">
+      <LightLeak />
+      <PosterHeader currentPath="/contact" />
+      <div className="section-grid about-stage">
+        <section className="about-content" aria-labelledby="about-heading">
+          <h1 id="about-heading" className="about-heading"><DebossTitle word="About" /></h1>
+          <Contact compact themed />
+        </section>
+      </div>
+    </main>
   );
 }
